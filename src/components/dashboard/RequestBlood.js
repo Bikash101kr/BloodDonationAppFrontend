@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap'
 import axios from 'axios'
 
-export default class Profile extends Component{
+export default class RequestBlood extends Component{
    
     
     render(){
@@ -10,19 +10,48 @@ export default class Profile extends Component{
             <div className='container'>
             <Form>
                 <FormGroup>
-                    <Label for="email">Email</Label>
-                    <Input type='email' name='email' id='email'
-                        //value={this.state.email}
-                        //onChange={this.handleChange}
+                    <Label for="patientName">Patient Name</Label>
+                    <Input type='patientName' name='patientName' id='patientName'
                          />
                 </FormGroup>
                 <FormGroup>
-                    <Label for='dateOfBirth'>Date Of Birth </Label>
-                    <Input type='date' name='dateOfBirth' id='dateOfBirth'
-                        //value={this.state.dateOfBirth}
-                       // onChange={this.handleChange}
+                    <Label for='patientAge'>Patient Age </Label>
+                    <Input type='age' name='patientAge' id='patientAge'
+                        
+                    />
+                     <FormGroup>
+                    <Label for='country'>Country</Label>
+                    <Input type='text' name='country' id='country'
                     />
                 </FormGroup>
+                <FormGroup>
+                    <Label for='district'>District</Label>
+                    <Input type='text' name='district' id='district'
+                    />
+                </FormGroup>
+                <FormGroup>
+                    <Label for='city'>City</Label>
+                    <Input type='text' name='city' id='city'
+                    />
+                    </FormGroup>
+                    <FormGroup>
+                    <Label for='street'>Street</Label>
+                    <Input type='text' name='street' id='street'
+                    />
+                
+                </FormGroup>
+                </FormGroup>
+                    <FormGroup>
+                    <Label for='hospitalName'>Hospital Name</Label>
+                    <Input type='hospitalName' name='hospitalName' id='hospitalName'
+                    />
+                
+                </FormGroup>
+                <FormGroup>
+                    <Label for='location'>Location</Label>
+                    <Input type='text' name='location' id='location'
+                         />
+                    </FormGroup>
                 <FormGroup>
                     <Label for='bloodGroup'>Blood Group</Label>
                     <Input type='select' name='bloodGroup' id='bloodGroup'>
@@ -39,10 +68,8 @@ export default class Profile extends Component{
                          
                 </FormGroup>
                 <FormGroup>
-                    <Label for='lastDonation'>Last Donation Date</Label>
-                    <Input type='date' name='lastDonation' id='lastDonation'
-                       // value={this.state.lastDonation}
-                        //onChange={this.handleChange}
+                    <Label for='requirementReason'>Requirement Reason</Label>
+                    <Input type='date' name='requirementReason' id='requirementReason'
                          />
                     </FormGroup>
 

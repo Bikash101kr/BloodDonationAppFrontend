@@ -2,9 +2,9 @@ import React from 'react'
 import { Navbar, NavItem, NavbarText, Button, Nav, } from 'reactstrap';
 import { NavLink, Switch, Link } from 'react-router-dom';
 import PrivateRoute from './PrivateRoute';
-import Category from './dashboard/Category';
-import Task from './dashboard/Task';
-import EditTask from './dashboard/EditTask';
+import DonateBlood from './dashboard/DonateBlood';
+import RequestBlood from './dashboard/RequestBlood';
+import BloodBank from './dashboard/BloodBank';
 import Profile from './Profile';
 
 export default function NavBar(props) {
@@ -14,13 +14,16 @@ export default function NavBar(props) {
             <Navbar color='dark' dark expand='md'>
                 <Nav className='mr-auto' vertical navbar>
                     <NavItem>
-                        <Link to='/dash/categories'>Categories</Link>
+                        <Link to='/dash/profile'>User Pofile</Link>
                     </NavItem>
                     <NavItem>
-                        <NavLink to='/dash/tasks'>Tasks</NavLink>
+                        <NavLink to='/dash/donations'>DonateBlood</NavLink>
                     </NavItem>
                     <NavItem>
-                        <NavLink to='/dash/profile'>Username</NavLink>
+                        <NavLink to='/dash/requests'>Request Blood</NavLink>
+                    </NavItem>
+                    <NavItem>
+                        <NavLink to='/dash/bloodBank'>Blood Bank</NavLink>
                     </NavItem>
                 </Nav>
                 <NavbarText>
@@ -28,10 +31,10 @@ export default function NavBar(props) {
                 </NavbarText>
             </Navbar>
             <Switch>
-                <PrivateRoute path='/dash/categories' component={Category} />
-                <PrivateRoute path='/dash/tasks/:taskId' component={EditTask} />
-                <PrivateRoute path='/dash/tasks' component={Task} />
+                <PrivateRoute path='/dash/donations' component={DonateBlood} />
+                <PrivateRoute path='/dash/requests' component={RequestBlood} />
                 <PrivateRoute path='/dash/profile' component={Profile} />
+                <PrivateRoute path='/dash/bloodBank' component={BloodBank} />
             </Switch>
         </div>
     )
