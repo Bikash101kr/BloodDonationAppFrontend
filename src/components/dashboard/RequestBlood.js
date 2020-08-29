@@ -11,12 +11,12 @@ export default class RequestBlood extends Component{
             <Form>
                 <FormGroup>
                     <Label for="patientName">Patient Name</Label>
-                    <Input type='patientName' name='patientName' id='patientName'
+                    <Input type='text' name='patientName' id='patientName'
                          />
                 </FormGroup>
                 <FormGroup>
                     <Label for='patientAge'>Patient Age </Label>
-                    <Input type='age' name='patientAge' id='patientAge'
+                    <Input type='text' name='patientAge' id='patientAge'
                         
                     />
                      <FormGroup>
@@ -43,7 +43,7 @@ export default class RequestBlood extends Component{
                 </FormGroup>
                     <FormGroup>
                     <Label for='hospitalName'>Hospital Name</Label>
-                    <Input type='hospitalName' name='hospitalName' id='hospitalName'
+                    <Input type='text' name='hospitalName' id='hospitalName'
                     />
                 
                 </FormGroup>
@@ -68,28 +68,27 @@ export default class RequestBlood extends Component{
                          
                 </FormGroup>
                 <FormGroup>
+                <Label for='requirement'>Requirement Type</Label>
+                <Input type='select' id='requirement'
+                >
+                    <option value=''>Select Requirement Type</option>
+                    <option value=''>fresh</option>
+                    <option value=''>stored</option>
+                    <option value=''>any of above</option>
+                </Input>
+            </FormGroup>
+                <FormGroup>
                     <Label for='requirementReason'>Requirement Reason</Label>
-                    <Input type='date' name='requirementReason' id='requirementReason'
+                    <Input type='text' name='requirementReason' id='requirementReason'
+                         />
+                    </FormGroup>
+                    <FormGroup>
+                    <Label for='requireBefore'>Require Before</Label>
+                    <Input type='date' name='requireBefore' id='requireBefore'
                          />
                     </FormGroup>
 
-                <FormGroup>
-                <Label for='gender'>Gender</Label>
-                <Input type='select' id='gender' //onChange={props.handleCategoryChange}
-                >
-                    <option value=''>Select Gender</option>
-                    <option value=''>male</option>
-                    <option value=''>female</option>
-                    <option value=''>other</option>
-                    {/* {
-                        props.categories.map((category) => {
-                            return (<option value={category._id} key={category._id}>
-                                {category.name}
-                            </option>)
-                        })
-                    } */}
-                </Input>
-            </FormGroup>
+                
                 
                 <Button block color="primary" onClick={this.handleSubmit}>Submit</Button>
                 <Button block color='warning' onClick={() => this.props.history.push('/')}>Cancel</Button>
