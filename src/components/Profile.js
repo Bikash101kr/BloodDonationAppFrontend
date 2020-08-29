@@ -3,7 +3,31 @@ import { Form, FormGroup, Label, Input, Button } from 'reactstrap'
 import axios from 'axios'
 
 export default class Profile extends Component{
-   
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            email: '',
+            dateOfBirth: '',
+            gender: '',
+            bloodGroup: '',
+            lastDonation:''
+        }
+    }
+
+    handleChange = (event) => {
+        this.setState({
+            [event.target.name]: event.target.value
+        })
+    }
+
+    handleSubmit = (event) => {
+        event.preventDefault();
+        axios.post('http://localhost:3000/api/Profile', this.state)
+            .then((res) => {
+                console.log(res)
+            }).catch(err => console.log(err.response.data))
+    }
     
     render(){
         return(
@@ -12,15 +36,17 @@ export default class Profile extends Component{
                 <FormGroup>
                     <Label for="email">Email</Label>
                     <Input type='email' name='email' id='email'
-                        //value={this.state.email}
-                        //onChange={this.handleChange}
+                    value ={this.state.email}
+                    onChange={this.handleChange}
+                        
                          />
                 </FormGroup>
                 <FormGroup>
                     <Label for='dateOfBirth'>Date Of Birth </Label>
                     <Input type='date' name='dateOfBirth' id='dateOfBirth'
-                        //value={this.state.dateOfBirth}
-                       // onChange={this.handleChange}
+                    value ={this.state.dateOfBirth}
+                    onChange={this.handleChange}
+                    
                     />
                 </FormGroup>
                 <FormGroup>
@@ -35,32 +61,31 @@ export default class Profile extends Component{
                     <option value=''>B-</option>
                     <option value=''>AB-</option>
                     <option value=''>O-</option>
+                    value ={this.state.bloodGroup}
+                    onChange={this.handleChange}
                     </Input>
                          
                 </FormGroup>
                 <FormGroup>
                     <Label for='lastDonation'>Last Donation Date</Label>
                     <Input type='date' name='lastDonation' id='lastDonation'
-                       // value={this.state.lastDonation}
-                        //onChange={this.handleChange}
+                    value ={this.state.lastDonation}
+                    onChange={this.handleChange}
+                    
                          />
                     </FormGroup>
 
                 <FormGroup>
                 <Label for='gender'>Gender</Label>
-                <Input type='select' id='gender' //onChange={props.handleCategoryChange}
+                <Input type='select' id='gender' 
                 >
                     <option value=''>Select Gender</option>
                     <option value=''>male</option>
                     <option value=''>female</option>
                     <option value=''>other</option>
-                    {/* {
-                        props.categories.map((category) => {
-                            return (<option value={category._id} key={category._id}>
-                                {category.name}
-                            </option>)
-                        })
-                    } */}
+                    value ={this.state.email}
+                    onChange={this.handleChange}
+                    
                 </Input>
             </FormGroup>
                 
