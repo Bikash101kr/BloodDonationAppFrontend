@@ -10,9 +10,10 @@ import Profile from './Profile';
 export default function NavBar(props) {
 
     return (
+
         <div>
             <Navbar color='dark' dark expand='md'>
-                <Nav className='mr-auto' vertical navbar>
+                <Nav className='mr-auto'>
                     <NavItem>
                         <Link to='/dash/profile'>User Pofile</Link>
                     </NavItem>
