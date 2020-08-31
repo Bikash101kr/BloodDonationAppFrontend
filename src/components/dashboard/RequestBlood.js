@@ -129,7 +129,7 @@ export default class RequestBlood extends Component{
             <FormGroup>
                     <Label for='needUnit'>Need Unit</Label>
                     <Input type='text' name='needUnit' id='needUnit'
-                     value ={this.state.needUnit}
+                     value ={this.state.need}
                      onChange={this.handleChange}
                     />
                 </FormGroup>

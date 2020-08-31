@@ -15,6 +15,8 @@ export default class Login extends Component {
             isBasic: false,
             isAdmin: false,
         }
+    this.handleChange = this.handleChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
     }
     handleChange = (event) => {
         this.setState({
@@ -23,6 +25,19 @@ export default class Login extends Component {
     }
 
     handleSubmit = (e) => {
+        e.preventDefault()
+
+    const user = {
+      username: this.state.username,
+      password: this.state.password
+    }
+
+    login(user).then(res => {
+      if (res) {
+        this.props.history.push(`/profile`)
+      }
+    })
+
         e.preventDefault();
         axios.post('http://localhost:3000/api/users/login', this.state)
             .then((res) => {
@@ -31,6 +46,7 @@ export default class Login extends Component {
                 let user = jwtDecode(res.data.token.split(' ')[1]);
                 if (user.role === 'admin') this.setState({ isAdmin: true })
                 else this.setState({ isBasic: true })
+                return res.data;
             }).catch(err => console.log(err));
     }
 
@@ -38,7 +54,7 @@ export default class Login extends Component {
         if (this.state.isAdmin) {
             return <Redirect to='/admin' />
         } else if (this.state.isBasic) {
-            return <Redirect to='/dash' />
+            return <Redirect to='/dash/' />
         }
         return (
             
@@ -63,3 +79,18 @@ export default class Login extends Component {
         )
     }
 }
+const login = user => {
+    return axios
+      .post('users/login', {
+        username: user.username,
+        password: user.password
+      })
+      .then(res => {
+        localStorage.setItem('usertoken', res.data.token)
+        //console.log(res)
+        return res.data
+      })
+      .catch(err => {
+        console.log('Invalid username and password, ' + err)
+      })
+  }

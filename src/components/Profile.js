@@ -1,7 +1,8 @@
 import React, {Component} from 'react'
-import { Form, FormGroup, Label, Input, Button } from 'reactstrap'
 import axios from 'axios'
-import Axios from 'axios'
+import { Form, FormGroup, Label, Input, Button } from 'reactstrap'
+import jwt_decode from 'jwt-decode'
+import { getUser } from './UserFunction'
 
 export default class Profile extends Component{
    
@@ -9,7 +10,6 @@ export default class Profile extends Component{
         super(props)
 
         this.state = {
-            userID: '',
             username: '',
             firstName: '',
             lastName:'',
@@ -26,14 +26,25 @@ export default class Profile extends Component{
         }
     }
     componentDidMount(){
-        Axios.get('http://localhost:3000/api/users', this.state, this.state.config)
+    const token = localStorage.getItem('token')
+    const decoded=jwt_decode(token)
+    getUser(decoded.uid).then(res => {
+      this.setState({
+                username: res.data.username,
+                firstName: res.data.firstName,
+                lastName: res.data.lastName,
+                phone: res.data.phone,
+                role: res.data.role
+      })
+    })
+        axios.get('http://localhost:3000/api/users/profile', this.state)
         .then ((res) => {
             this.setState({
-                username: res.username,
-                firstName: res.firstName,
-                lastName: res.lastName,
-                phone: res.phone,
-                role: res.role
+                username: res.data.username,
+                firstName: res.data.firstName,
+                lastName: res.data.lastName,
+                phone: res.data.phone,
+                role: res.data.role
 
             })
            
@@ -152,6 +163,5 @@ export default class Profile extends Component{
 }
 
 }
-    
     
 
