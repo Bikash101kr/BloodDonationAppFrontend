@@ -176,22 +176,5 @@ export default class RequestBlood extends Component{
     }
     
 }
-function RequestList(props) {
-    return (
-        <ListGroup>
-            {
-                props.requests.map((request) => {
-                    return (<ListGroupItem key={request._id}>
-                        {request.name}
-                        <span className='float-right'>
-                            <Button size='sm' color='warning'
-                                onClick={() => props.handleEdit(request._id)} >Edit</Button>
-                            <Button size='sm' color='danger'>Delete</Button>
-                        </span>
-                    </ListGroupItem>)
-                })
-            }
-        </ListGroup>
-    )
-}
+
 

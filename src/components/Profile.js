@@ -2,7 +2,6 @@ import React, {Component} from 'react'
 import axios from 'axios'
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap'
 import jwt_decode from 'jwt-decode'
-import { getUser } from './UserFunction'
 
 export default class Profile extends Component{
    
@@ -10,6 +9,7 @@ export default class Profile extends Component{
         super(props)
 
         this.state = {
+            id:0,
             username: '',
             firstName: '',
             lastName:'',
@@ -34,31 +34,24 @@ export default class Profile extends Component{
                 lastName: decoded.lastName,
                 phone: decoded.phone,
                 role: decoded.role,
-                email:decoded.email,
-                dateOfBirth: '',
-                gender: '',
-                bloodGroup: '',
-                lastDonation:''
       })
-        axios.get('http://localhost:3000/api/profile/${id}', this.state, this.state.config)
+        axios.get('http://localhost:3000/api/profile/{_id}', this.state, this.state.config)
         .then ((res) => {
             this.setState({
-                username: decoded.username,
-                firstName: decoded.firstName,
-                lastName: decoded.lastName,
-                phone: decoded.phone,
-                role: decoded.role,
-                email: '',
+                profiles: res.data,
+                id:0,
+                email:'',
                 dateOfBirth: '',
                 gender: '',
                 bloodGroup: '',
                 lastDonation:''
+                
 
             })
            
         }).catch(err => console.log(err.response));
     }
-
+    
 
     handleChange = (event) => {
         this.setState({
@@ -107,8 +100,9 @@ export default class Profile extends Component{
         <FormGroup>
             <Label for="email">Email</Label>
             <Input type='email' name='email' id='email'
+
             value ={this.state.email}
-            onChange={this.handleChange}
+            onChange={(event)=> this.emailchange(event)}
                 
                  />
         </FormGroup>

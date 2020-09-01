@@ -26,6 +26,7 @@ export default function NavBar(props) {
                     <NavItem>
                         <NavLink to='/dash/bloodBank'>Blood Bank</NavLink>
                     </NavItem>
+                    
                 </Nav>
                 <NavbarText>
                     <Button onClick={props.handleLogout} color='warning'>Logout</Button>
@@ -36,6 +37,7 @@ export default function NavBar(props) {
                 <PrivateRoute path='/dash/requests' component={RequestBlood} />
                 <PrivateRoute path='/dash/profile' component={Profile} />
                 <PrivateRoute path='/dash/bloodBank' component={BloodBank} />
+              
             </Switch>
         </div>
     )
