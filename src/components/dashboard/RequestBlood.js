@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { Form, FormGroup, Label, Input, Button } from 'reactstrap'
+import { Form, FormGroup, Label, Input, Button,ListGroup, ListGroupItem } from 'reactstrap'
 import axios from 'axios'
 
 export default class RequestBlood extends Component{
@@ -26,6 +26,7 @@ export default class RequestBlood extends Component{
             }
         }
     }
+
     handleChange = (event) => {
         this.setState({
             [event.target.name]: event.target.value
@@ -39,9 +40,12 @@ export default class RequestBlood extends Component{
             }).catch(err => console.log(err.response.data));
             
     }
-    
+    handleEdit = (requestId) => {
+        this.props.history.push(`/dash/requestbloods/${requestId}`);
+    }
     render(){
         return(
+            
             <div className='container'>
             <Form>
                 <FormGroup>
@@ -156,7 +160,7 @@ export default class RequestBlood extends Component{
                     </FormGroup>
                     <FormGroup>
                     <Label for='requireBefore'>Require Before</Label>
-                    <Input type='date' name='requireBefore' id='requireBefore'
+                    <Input type='datetime-local' name='requireBefore' id='requireBefore'
                      value ={this.state.requireBefore}
                      onChange={this.handleChange}
                          />
@@ -172,5 +176,22 @@ export default class RequestBlood extends Component{
     }
     
 }
-
+function RequestList(props) {
+    return (
+        <ListGroup>
+            {
+                props.requests.map((request) => {
+                    return (<ListGroupItem key={request._id}>
+                        {request.name}
+                        <span className='float-right'>
+                            <Button size='sm' color='warning'
+                                onClick={() => props.handleEdit(request._id)} >Edit</Button>
+                            <Button size='sm' color='danger'>Delete</Button>
+                        </span>
+                    </ListGroupItem>)
+                })
+            }
+        </ListGroup>
+    )
+}
 

@@ -28,23 +28,31 @@ export default class Profile extends Component{
     componentDidMount(){
     const token = localStorage.getItem('token')
     const decoded=jwt_decode(token)
-    getUser(decoded.uid).then(res => {
       this.setState({
-                username: res.data.username,
-                firstName: res.data.firstName,
-                lastName: res.data.lastName,
-                phone: res.data.phone,
-                role: res.data.role
+                username: decoded.username,
+                firstName: decoded.firstName,
+                lastName: decoded.lastName,
+                phone: decoded.phone,
+                role: decoded.role,
+                email:decoded.email,
+                dateOfBirth: '',
+                gender: '',
+                bloodGroup: '',
+                lastDonation:''
       })
-    })
-        axios.get('http://localhost:3000/api/users/profile', this.state)
+        axios.get('http://localhost:3000/api/profile/${id}', this.state, this.state.config)
         .then ((res) => {
             this.setState({
-                username: res.data.username,
-                firstName: res.data.firstName,
-                lastName: res.data.lastName,
-                phone: res.data.phone,
-                role: res.data.role
+                username: decoded.username,
+                firstName: decoded.firstName,
+                lastName: decoded.lastName,
+                phone: decoded.phone,
+                role: decoded.role,
+                email: '',
+                dateOfBirth: '',
+                gender: '',
+                bloodGroup: '',
+                lastDonation:''
 
             })
            
@@ -78,7 +86,7 @@ export default class Profile extends Component{
     </FormGroup>
     <FormGroup>
     <Label for="firstName">First Name</Label>
-        <Input name='firstName' type='text' edit = 'disable' 
+        <Input name='firstName' type='text' click = 'disable' edit = 'disable' 
             value={this.state.firstName} />
     </FormGroup>
     <FormGroup>
@@ -154,8 +162,7 @@ export default class Profile extends Component{
         </Input>
     </FormGroup>
         
-        <Button block color="primary" onClick={this.handleSubmit}>Submit</Button>
-        <Button block color='warning' onClick={() => this.props.history.push('/')}>Cancel</Button>
+        <Button block color="primary" onClick={this.handleSubmit}>Update</Button>
     </Form>
 </div>
 
