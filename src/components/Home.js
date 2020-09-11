@@ -5,22 +5,23 @@ import Login from './Login'
 export default function Home(props) {
     return (
         <div>
-            <Jumbotron fluid>
+            <Jumbotron>
+            
                 <Container fluid>
                 <p className="lead">Be a life saver!!</p>
-                    <h1 className='display-3'>Serve Humanity</h1>
+                    <h1 className='display-3'>SERVE HUMANITY</h1>
                     <p className="lead">through blood donation!!</p>
-                    <hr />
-                    <Login />
-                    <hr />
+                    <Login/>
                     <p className="lead"> New user?
+                        
                         <Button color="primary" onClick={() => props.history.push('/register')}>Register</Button>
                         {/* <Link to='/register'>
                             <button className="btn-primary">Register</button>
                         </Link> */}
                     </p>
                 </Container>
-            </Jumbotron>
+           </Jumbotron>
         </div>
+           
     )
 }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
+
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap'
 import axios from 'axios'
-
 export default class Register extends Component {
     constructor(props) {
         super(props)
