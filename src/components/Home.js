@@ -1,7 +1,5 @@
 import React from 'react'
-import { Jumbotron, Container, Button } from 'reactstrap'
-import Login from './Login'
-import Register from './Register'
+import {  Button } from 'reactstrap'
 
 
 export default function homepage(props) {
@@ -13,7 +11,7 @@ export default function homepage(props) {
 				<div class="container">
 						
 					{/* <!-- Logo --> */}
-						<h1><a href="#" id="logo">SERVE HUMANITY</a></h1>
+						<h1><a href="/#" id="logo">SERVE HUMANITY</a></h1>
 
 					{/* <!-- Banner --> */}
 						<div id="banner">

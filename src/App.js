@@ -1,9 +1,12 @@
 import React from 'react';
 import './App.css';
+import './components/css/style.css'
+import './components/css/skel.css'
 
 import "../node_modules/bootstrap/dist/css/bootstrap.css";
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Register from './components/Register';
+import Login from './components/Login';
 import Home from './components/Home';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import PrivateRoute from './components/PrivateRoute';
@@ -20,9 +23,10 @@ function App() {
     <div>
 <BrowserRouter>
         <Switch>
+        <Route path="/" exact component={Home} />
+        <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
-          <PrivateRoute path='/dash' component={Dashboard} />
-          <Route path="/" exact component={Home} />
+          <PrivateRoute path='/'  component={Dashboard} />
           <AdminRoute path='/admin' component={AdminDash} />
           <PrivateRoute path='/profile' component={Profile} />
           <PrivateRoute path='/dashboard/AddDonation' component={AddDonation} />
