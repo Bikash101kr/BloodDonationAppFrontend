@@ -2,8 +2,10 @@ import React from 'react'
 import { Navbar, NavItem, NavbarText, Button, Nav, } from 'reactstrap';
 import { NavLink, Switch, Link } from 'react-router-dom';
 import PrivateRoute from './PrivateRoute';
-import DonateBlood from './dashboard/DonateBlood';
-import RequestBlood from './dashboard/RequestBlood';
+import AddDonation from './dashboard/AddDonation';
+import ViewDonations from './dashboard/ViewDonations';
+import ViewRequests from './dashboard/ViewRequests';
+import AddRequest from './dashboard/AddRequest';
 import BloodBank from './dashboard/BloodBank';
 import Profile from './Profile';
 
@@ -13,15 +15,21 @@ export default function NavBar(props) {
 
         <div>
             <Navbar color='dark' dark expand='md'>
-                <Nav className='mr-auto'>
+                <Nav className='mr-auto' vertical navbar>
                     <NavItem>
                         <Link to='/dash/profile'>User Pofile</Link>
                     </NavItem>
                     <NavItem>
-                        <NavLink to='/dash/donations'>DonateBlood</NavLink>
+                        <NavLink to='/dash/donations'>Add Donation</NavLink>
                     </NavItem>
                     <NavItem>
-                        <NavLink to='/dash/requests'>Request Blood</NavLink>
+                        <NavLink to='/dash/viewdonations'> View Donations</NavLink>
+                    </NavItem>
+                    <NavItem>
+                        <NavLink to='/dash/requests'>Add Request </NavLink>
+                    </NavItem>
+                    <NavItem>
+                        <NavLink to='/dash/viewrequests'> View Requests</NavLink>
                     </NavItem>
                     <NavItem>
                         <NavLink to='/dash/bloodBank'>Blood Bank</NavLink>
@@ -33,8 +41,10 @@ export default function NavBar(props) {
                 </NavbarText>
             </Navbar>
             <Switch>
-                <PrivateRoute path='/dash/donations' component={DonateBlood} />
-                <PrivateRoute path='/dash/requests' component={RequestBlood} />
+                <PrivateRoute path='/dash/donations' component={AddDonation} />
+                <PrivateRoute path='/dash/viewdonations' component={ViewDonations} />
+                <PrivateRoute path='/dash/requests' component={AddRequest} />
+                <PrivateRoute path='/dash/viewrequests' component={ViewRequests} />
                 <PrivateRoute path='/dash/profile' component={Profile} />
                 <PrivateRoute path='/dash/bloodBank' component={BloodBank} />
               

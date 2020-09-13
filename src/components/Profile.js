@@ -9,7 +9,7 @@ export default class Profile extends React.Component{
         super(props)
 
         this.state = {
-            profile_id: '',
+            profileId: '',
             username: '',
             firstName: '',
             lastName:'',
@@ -21,11 +21,12 @@ export default class Profile extends React.Component{
             bloodGroup: '',
             lastDonation:'',
             config: {
-                headers: { 'Authorization': localStorage.getItem('token') }
+                headers: { 'Authorization': localStorage.getItem('token') },
+                isUpdate: false
             }
         }
     }
-    componentDidMount(){
+    componentDidMount= ()=> {
     const token = localStorage.getItem('token')
     const decoded=jwt_decode(token)
       this.setState({
@@ -34,23 +35,22 @@ export default class Profile extends React.Component{
                 lastName: decoded.lastName,
                 phone: decoded.phone,
                 role: decoded.role,
-                email:decoded.email,
+                profileID: decoded.pro_id
+            
+            
       })
-      this.fetchProfileDetails(this.state.profile_id);
-    }
-    fetchProfileDetails=(profile_id)=>{
-        axios.get("http://localhost:3000/api/profile/"+profile_id, this.state, this.state.config,{
-        headers: {
-            "content-type": "application/json"
-          } 
+        axios.get("http://localhost:3000/api/profile/" + this.state.profileId, {
+            headers: { 'Authorization': localStorage.getItem('token') }
         })
         .then ((res) => {
+            console.log(res.data)
             this.setState({
-                email:res.data,
-                dateOfBirth: '',
-                gender: '',
-                bloodGroup: '',
-                lastDonation:''
+                profileId: res.data.id,
+                email:res.data.email,
+                dateOfBirth:res.data.dateOfBirth,
+                gender: res.data.gender,
+                bloodGroup:res.data.bloodGroup,
+                lastDonation:res.data.lastDonation
                 
 
             })
@@ -67,10 +67,16 @@ export default class Profile extends React.Component{
 
     handleSubmit = (event) => {
         event.preventDefault();
-        axios.post('http://localhost:3000/api/Profile', this.state, this.state.config )
+        axios.post('http://localhost:3000/api/profile', this.state, this.state.config )
             .then((res) => {
-                console.log(res)
-            }).catch(err => console.log(err.response.data))
+                this.setState({
+                    email: '',
+                    dateOfBirth: '',
+                    gender: '',
+                    bloodGroup: '',
+                    lastDonation:''  
+                })
+            }).catch(err => console.log(err.response.data.message))
     }
 
     
@@ -108,7 +114,7 @@ export default class Profile extends React.Component{
             <Input type='email' name='email' id='email'
 
             value ={this.state.email}
-            onChange={(event)=> this.emailchange(event)}
+            onChange={this.handleChange}
                 
                  />
         </FormGroup>

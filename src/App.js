@@ -13,8 +13,9 @@ import AdminDash from './components/dashboard/AdminDash';
 import AdminRoute from './components/AdminRoute';
 import Dashboard from './components/dashboard/Dashboard';
 import Profile from './components/Profile'
-import DonateBlood from './components/dashboard/DonateBlood';
-import RequestBlood from './components/dashboard/RequestBlood';
+import AddDonation from './components/dashboard/AddDonation';
+import ViewDonations from './components/dashboard/ViewDonations';
+import AddRequest from './components/dashboard/AddRequest';
 function App() {
   return (
     <div>
@@ -25,8 +26,9 @@ function App() {
           <Route path="/" exact component={Home} />
           <AdminRoute path='/admin' component={AdminDash} />
           <PrivateRoute path='/profile' component={Profile} />
-          <PrivateRoute path='/dashboard/DonateBlood' component={DonateBlood} />
-          <PrivateRoute path='/dashboard/RequestBlood' component={RequestBlood} />
+          <PrivateRoute path='/dashboard/AddDonation' component={AddDonation} />
+          <PrivateRoute path='/dashboard/ViewDonations' component={ViewDonations} />
+          <PrivateRoute path='/dashboard/AddRequest' component={AddRequest} />
           <Route>
             <NoMatch />
           </Route>

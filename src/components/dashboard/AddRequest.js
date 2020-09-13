@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import { Form, FormGroup, Label, Input, Button,ListGroup, ListGroupItem } from 'reactstrap'
 import axios from 'axios'
 
-export default class RequestBlood extends Component{
+export default class AddRequest extends Component{
     constructor(props) {
         super(props)
 
@@ -133,7 +133,7 @@ export default class RequestBlood extends Component{
             <FormGroup>
                     <Label for='needUnit'>Need Unit</Label>
                     <Input type='text' name='needUnit' id='needUnit'
-                     value ={this.state.need}
+                     value ={this.state.needUnit}
                      onChange={this.handleChange}
                     />
                 </FormGroup>
