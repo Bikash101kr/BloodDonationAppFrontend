@@ -18,7 +18,35 @@ export default function NavBar(props) {
 
         <div>
             <Navbar color='dark' dark expand='md'>
-                <Nav className='mr-auto' vertical navbar>
+            <Nav id="nav" className='mr-auto' >
+                    <ul id="navul">
+                       <NavItem id="navitem">
+                            <Link to='/dash/profile'>User Pofile</Link>
+                            <ul>
+                                <Link to='/dash/profile' id="navlist">View Profile</Link>
+                                <Link to='/dash/profile' id="navlist">Edit Profile</Link>
+                            </ul>
+                        </NavItem>
+                        <NavItem id="navitem">
+                            <NavLink to='/dash/donations'>Donate Blood</NavLink>
+                            <ul>
+                                <Link to='/dash/profile' id="navlist">View Donations</Link>
+                                <Link to='/dash/profile' id="navlist">Add Donation</Link>
+                            </ul>
+                        </NavItem >
+                        <NavItem id="navitem">
+                            <NavLink to='/dash/requests'>Request Blood</NavLink>
+                            <ul>
+                                <Link to='/dash/profile' id="navlist">View Requests</Link>
+                                <Link to='/dash/profile' id="navlist">Add Request</Link>
+                            </ul>
+                        </NavItem>
+                        <NavItem id="navitem">
+                            <NavLink to='/dash/bloodBank'>Blood Bank</NavLink>
+                        </NavItem>
+                    </ul>
+                </Nav>
+                {/* <Nav className='mr-auto' >
                     <NavItem>
                         <Link to='/dash/profile'>User Pofile</Link>
                     </NavItem>
@@ -41,7 +69,7 @@ export default function NavBar(props) {
                         <NavLink to='/dash/updaterequests'>Update Requests</NavLink>
                     </NavItem>
                     
-                </Nav>
+                </Nav> */}
                 <NavbarText>
                     <Button onClick={props.handleLogout} color='warning'>Logout</Button>
                 </NavbarText>
