@@ -48,6 +48,11 @@ export default class ViewRequests extends Component {
 	  console.log(id)
 	  this.props.history.push(`/dash/updaterequests/${id}`);
   }
+  handleViewClick = (id) => {
+	  console.log(id)
+	  this.props.history.push(`/dash/viewrequestdetails/${id}`);
+  }
+
 
 componentDidMount(){
   Axios.get('http://localhost:3000/api/RequestBlood', this.state.config)
@@ -86,7 +91,8 @@ render() {
             <td>{request.hospitalName}</td>
                 <td>{request.requireBefore}</td>
                 <td>
-                  <Link class="btn btn-primary mr-2">
+                  <Link class="btn btn-primary mr-2"
+                  onClick={() => this.handleViewClick(request._id)}>
                     View
                   </Link>
                   <Link onClick={() => this.handleUpdateClick(request._id)}

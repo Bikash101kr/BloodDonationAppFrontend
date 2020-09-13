@@ -8,15 +8,16 @@ export default class ViewDonations extends Component {
     super(props)
 
     this.state = {
-            donatebloods: [],
-            weight: '',
-            country: '',
-            state: '',
-            district: '',
-            city: '',
-            street: '',
-            location: '',
-            status: '',
+      donatebloods: [],
+      donationId:'',
+      weight: '',
+      country: '',
+      state: '',
+      district: '',
+      city: '',
+      street: '',
+      location: '',
+      status: '',
         config: {
             headers: { 'Authorization': localStorage.getItem('token') }
         }
@@ -57,14 +58,14 @@ render() {
       <div className='container'>
          
          <div className="py-4">
-        <h1>donation List</h1>
+        <h1>Donation List</h1>
         <table class="table border shadow">
           <thead class="thead-dark">
             <tr>
             <th scope="col">#</th>
               <th scope="col">Full Address</th>
               <th scope="col"> Weight</th>
-              <th scope="col"> Donation Location</th>
+              <th scope="col"> Prefer Location</th>
               <th scope="col"> Blood Status</th>
         
               <th>Action</th>
@@ -74,23 +75,21 @@ render() {
             {this.state.donatebloods.map(donation => (
               <tr key= {donation._id}>
                 <th scope="row"></th>
-            <td>{donation.country, donation.state, donation.district, donation.city, donation.street}</td>
+            <td>{donation.country},
+            {donation.state}, {donation.district},
+            {donation.city}, {donation.street}
+            </td>
             <td>{donation.weight}</td>
             <td>{donation.location}</td>
                 <td>{donation.status}</td>
                 <td>
-                  <Link class="btn btn-primary mr-2">
-                    View
-                  </Link>
-                  <Link onClick={() => this.handleUpdateClick(donation._id)}
-                    class="btn btn-outline-primary mr-2"
                 
-                  >
+                  <Link class="btn btn-outline-primary mr-2"
+                  onClick={() => this.handleUpdateClick(donation._id)}>
                     Edit
                   </Link>
-                  <Link class="btn btn-danger" onClick={() => this.handleDelete(donation._id)}>
-                    Delete
-                  </Link>
+                  <Link class="btn btn-danger"
+                  onClick={() => this.handleDelete(donation._id)}>Delete</Link>
                 </td>
               </tr>
               ))}

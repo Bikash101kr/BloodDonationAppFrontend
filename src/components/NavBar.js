@@ -7,8 +7,10 @@ import ViewDonations from './dashboard/ViewDonations';
 import ViewRequests from './dashboard/ViewRequests';
 import AddRequest from './dashboard/AddRequest';
 import UpdateRequests from './dashboard/UpdatedRequest';
+import UpdateDonations from './dashboard/UpdatedDonation';
 import BloodBank from './dashboard/BloodBank';
 import Profile from './Profile';
+import ViewRequestDetails from './dashboard/ViewRequestDetails';
 
 export default function NavBar(props) {
 
@@ -52,6 +54,8 @@ export default function NavBar(props) {
                 <PrivateRoute path='/dash/profile' component={Profile} />
                 <PrivateRoute path='/dash/bloodBank' component={BloodBank} />
                 <PrivateRoute path='/dash/updaterequests/:id' component={UpdateRequests} />
+               <PrivateRoute path='/dash/updatedonations/:id' component={UpdateDonations} />
+               <PrivateRoute path='/dash/viewrequestdetails/:id' component={ViewRequestDetails} />
               
             </Switch>
         </div>

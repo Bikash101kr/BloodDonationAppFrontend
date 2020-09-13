@@ -1,26 +1,40 @@
 import React, {Component} from 'react'
-import { Form, FormGroup, Label, Input, Button,ListGroup, ListGroupItem } from 'reactstrap'
+import { Form, FormGroup, Label, Input,} from 'reactstrap'
 import axios from 'axios'
+import { useParams } from 'react-router-dom'
 
-export default class AddRequest extends Component{
+
+export default function ViewRequestDetails(props) {
+	let {id} = useParams();
+	return (
+		<div>
+			<h1>{id}</h1>
+			<UpdateForm id={id}/>
+		</div>
+	)
+
+}
+
+ class UpdateForm extends Component{
     constructor(props) {
         super(props)
 
         this.state = {
+			id: this.props.id,
             patientName: '',
             patientAge: '',
             bloodGroup:'',
             country: '',
             state: '',
             district: '',
-            City: '',
+            city: '',
             street: '',
             hospitalName:'',
             location: '',
             needUnit: '',
             requirement:'',
             requirementReason:'',
-            requireBefore:'',
+			requireBefore:'',
             config: {
                 headers: { 'Authorization': localStorage.getItem('token') }
             }
@@ -32,21 +46,60 @@ export default class AddRequest extends Component{
             [event.target.name]: event.target.value
         })
     }
-    handleSubmit = (event) => {
-        event.preventDefault();
-        axios.post('http://localhost:3000/api/RequestBlood', this.state, this.state.config)
-            .then((res) => {
-                console.log(res)
-            }).catch(err => console.log(err.response.data));
-            
-    }
-    handleEdit = (requestId) => {
-        this.props.history.push(`/dash/requestbloods/${requestId}`);
-    }
+	componentDidMount = () => {
+		axios.get('http://localhost:3000/api/RequestBlood/' +  this.state.id, this.state.config)
+		.then((res) => {
+			console.log(res);
+			this.setState({
+				patientName: res.data.patientName,
+				patientAge: res.data.patientAge,
+				bloodGroup: res.data.bloodGroup,
+				country: res.data.country,
+				state: res.data.state,
+				district: res.data.district,
+				city: res.data.city,
+				street: res.data.street,
+				hospitalName:res.data.hospitalName,
+				location: res.data.location,
+				needUnit: res.data.needUnit,
+				requirement:res.data.requirement,
+				requirementReason:res.data.requirementReason,
+				requireBefore:res.data.requireBefore,
+				
+			})
+		}).catch(err => console.log(err.response.data));
+	}
+
     render(){
         return(
             
             <div className='container'>
+                <h1>Donation List</h1>
+        <table class="table border shadow">
+          <thead class="thead-dark">
+            <tr>
+            <th scope="row">#</th>
+              <th scope="row">Full Address</th>
+              <th scope="row"> Weight</th>
+              <th scope="row"> Prefer Location</th>
+              <th scope="row"> Blood Status</th>
+        
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+              <tr >
+                <th scope="col"></th>
+            <td>
+            </td>
+        <td>{this.state.patientAge}</td>
+            <td></td>
+                <td></td>
+            
+              </tr>
+            
+          </tbody>
+        </table>
             <Form>
                 <FormGroup>
                     <Label for="patientName">Patient Name</Label>
@@ -133,7 +186,7 @@ export default class AddRequest extends Component{
             <FormGroup>
                     <Label for='needUnit'>Need Unit</Label>
                     <Input type='text' name='needUnit' id='needUnit'
-                     value ={this.state.need}
+                     value ={this.state.needUnit}
                      onChange={this.handleChange}
                     />
                 </FormGroup>
@@ -166,10 +219,6 @@ export default class AddRequest extends Component{
                          />
                     </FormGroup>
 
-                
-                
-                <Button block color="primary" onClick={this.handleSubmit}>Submit</Button>
-                <Button block color='warning' onClick={() => this.props.history.push('/')}>Cancel</Button>
             </Form>
         </div>
         )
