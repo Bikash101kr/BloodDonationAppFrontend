@@ -1,6 +1,6 @@
 import React from 'react'
-import { Navbar, NavItem, NavbarText, Button, Nav, } from 'reactstrap';
-import { NavLink, Switch, Link } from 'react-router-dom';
+import { Navbar, NavItem, NavbarText, Button, Nav,  } from 'reactstrap';
+import { NavLink, Switch, Link, Route } from 'react-router-dom';
 import PrivateRoute from './PrivateRoute';
 import AddDonation from './dashboard/AddDonation';
 import ViewDonations from './dashboard/ViewDonations';
@@ -11,6 +11,7 @@ import UpdateDonations from './dashboard/UpdatedDonation';
 import BloodBank from './dashboard/BloodBank';
 import Profile from './Profile';
 import ViewRequestDetails from './dashboard/ViewRequestDetails';
+import Login from './Login';
 
 export default function NavBar(props) {
 
@@ -21,24 +22,24 @@ export default function NavBar(props) {
             <Nav id="nav" className='mr-auto' >
                     <ul id="navul">
                        <NavItem id="navitem">
-                            <Link to='/dash/profile'>User Pofile</Link>
+                            <Link to='/dash/nav'>User Profile</Link>
                             <ul>
                                 <Link to='/dash/profile' id="navlist">View Profile</Link>
                                 <Link to='/dash/profile' id="navlist">Edit Profile</Link>
                             </ul>
                         </NavItem>
                         <NavItem id="navitem">
-                            <NavLink to='/dash/donations'>Donate Blood</NavLink>
+                            <NavLink to='/dash/nav'>Donate Blood</NavLink>
                             <ul>
-                                <Link to='/dash/profile' id="navlist">View Donations</Link>
-                                <Link to='/dash/profile' id="navlist">Add Donation</Link>
+                                <Link to='/dash/viewdonations' id="navlist">View Donations</Link>
+                                <Link to='/dash/adddonation' id="navlist">Add Donation</Link>
                             </ul>
                         </NavItem >
                         <NavItem id="navitem">
-                            <NavLink to='/dash/requests'>Request Blood</NavLink>
+                            <NavLink to='/dash/nav'>Request Blood</NavLink>
                             <ul>
-                                <Link to='/dash/profile' id="navlist">View Requests</Link>
-                                <Link to='/dash/profile' id="navlist">Add Request</Link>
+                                <Link to='/dash/viewrequests' id="navlist">View Requests</Link>
+                                <Link to='/dash/addrequest' id="navlist">Add Request</Link>
                             </ul>
                         </NavItem>
                         <NavItem id="navitem">
@@ -46,44 +47,21 @@ export default function NavBar(props) {
                         </NavItem>
                     </ul>
                 </Nav>
-                {/* <Nav className='mr-auto' >
-                    <NavItem>
-                        <Link to='/dash/profile'>User Pofile</Link>
-                    </NavItem>
-                    <NavItem>
-                        <NavLink to='/dash/donations'>Add Donation</NavLink>
-                    </NavItem>
-                    <NavItem>
-                        <NavLink to='/dash/viewdonations'> View Donations</NavLink>
-                    </NavItem>
-                    <NavItem>
-                        <NavLink to='/dash/requests'>Add Request </NavLink>
-                    </NavItem>
-                    <NavItem>
-                        <NavLink to='/dash/viewrequests'> View Requests</NavLink>
-                    </NavItem>
-                    <NavItem>
-                        <NavLink to='/dash/bloodBank'>Blood Bank</NavLink>
-                    </NavItem>
-					<NavItem>
-                        <NavLink to='/dash/updaterequests'>Update Requests</NavLink>
-                    </NavItem>
-                    
-                </Nav> */}
                 <NavbarText>
-                    <Button onClick={props.handleLogout} color='warning'>Logout</Button>
+                    <Button onClick= {() => this.props.history.push('/login')} color='warning' > Logout</Button>
                 </NavbarText>
             </Navbar>
             <Switch>
-                <PrivateRoute path='/dash/donations' component={AddDonation} />
+                <PrivateRoute path='/dash/adddonation' component={AddDonation} />
                 <PrivateRoute path='/dash/viewdonations' component={ViewDonations} />
-                <PrivateRoute path='/dash/requests' component={AddRequest} />
+                <PrivateRoute path='/dash/addrequest' component={AddRequest} />
                 <PrivateRoute path='/dash/viewrequests' component={ViewRequests} />
                 <PrivateRoute path='/dash/profile' component={Profile} />
                 <PrivateRoute path='/dash/bloodBank' component={BloodBank} />
                 <PrivateRoute path='/dash/updaterequests/:id' component={UpdateRequests} />
                <PrivateRoute path='/dash/updatedonations/:id' component={UpdateDonations} />
                <PrivateRoute path='/dash/viewrequestdetails/:id' component={ViewRequestDetails} />
+               <Route path = '/login' component={Login}/>
               
             </Switch>
         </div>

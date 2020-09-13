@@ -18,6 +18,7 @@ import Profile from './components/Profile'
 import AddDonation from './components/dashboard/AddDonation';
 import ViewDonations from './components/dashboard/ViewDonations';
 import AddRequest from './components/dashboard/AddRequest';
+import ViewRequests from './components/dashboard/ViewRequests';
 function App() {
   return (
     <div>
@@ -28,10 +29,11 @@ function App() {
           <Route path="/register" component={Register} />
           <PrivateRoute path='/'  component={Dashboard} />
           <AdminRoute path='/admin' component={AdminDash} />
-          <PrivateRoute path='/profile' component={Profile} />
+          <PrivateRoute path='/profile' exact component={Profile} />
           <PrivateRoute path='/dashboard/AddDonation' component={AddDonation} />
           <PrivateRoute path='/dashboard/ViewDonations' component={ViewDonations} />
           <PrivateRoute path='/dashboard/AddRequest' component={AddRequest} />
+          <PrivateRoute path='/dashboard/ViewRequests' component={ViewRequests} />
           <Route>
             <NoMatch />
           </Route>

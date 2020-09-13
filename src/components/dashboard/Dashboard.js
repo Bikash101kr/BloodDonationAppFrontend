@@ -13,7 +13,7 @@ export default class Dashboard extends Component{
         super(props)
 
         this.state = {
-            id:0,
+            profileId:'',
             username: '',
             firstName: '',
             lastName:'',
@@ -38,17 +38,18 @@ export default class Dashboard extends Component{
                 lastName: decoded.lastName,
                 phone: decoded.phone,
                 role: decoded.role,
+                profileID: decoded.pro_id
       })
-        axios.get('http://localhost:3000/api/profile/{_id}', this.state, this.state.config)
-        .then ((res) => {
+        axios.get('http://localhost:3000/api/profile/' + decoded.pro_id, {
+            headers: { 'Authorization': localStorage.getItem('token') }
+    }).then ((res) => {
             this.setState({
-                profiles: res.data,
-                id:0,
-                email:'',
-                dateOfBirth: '',
-                gender: '',
-                bloodGroup: '',
-                lastDonation:''
+                profileId: res.data.id,
+                email:res.data.email,
+                dateOfBirth:res.data.dateOfBirth,
+                gender: res.data.gender,
+                bloodGroup:res.data.bloodGroup,
+                lastDonation:res.data.lastDonation
                 
 
             })
@@ -56,21 +57,6 @@ export default class Dashboard extends Component{
         }).catch(err => console.log(err.response));
     }
     
-
-    handleChange = (event) => {
-        this.setState({
-            [event.target.name]: event.target.value
-        }, ( ) => console.log(this.state))
-    }
-
-    handleSubmit = (event) => {
-        event.preventDefault();
-        axios.post('http://localhost:3000/api/Profile', this.state, this.state.config )
-            .then((res) => {
-                console.log(res)
-            }).catch(err => console.log(err.response.data))
-    }
-
     
     render() {
         return(
@@ -80,7 +66,7 @@ export default class Dashboard extends Component{
                 <section class="container">
                     <header class="major">
                         <h2>Hello : {this.state.firstName} {this.state.lastName}</h2>
-                        <span class="byline">This is Serve Humanity Dashboard</span>
+                        <span class="byline">This is Serve Humanity User Dashboard</span>
                     </header>
                     <div class="row no-collapse-1">
                         <section class="4u">   
@@ -88,9 +74,9 @@ export default class Dashboard extends Component{
                             <a href="!#" class="image feature"></a>
                             <img src={users} alt="Users" />
                             <h3>Update Your Profile</h3>
-                            <p>First Name : <i>{this.state.firstName}</i></p>
-                            <p>Last Name : <i>{this.state.lastName}</i></p>
-                            <p>Phone Number: <i>{this.state.phone}</i></p>
+                            <p>Full Name : <i>{this.state.firstName} {this.state.lastName}</i></p>
+                            <p>Blood Group: <i>{this.state.bloodGroup}</i></p>
+                            <p>Phone Number : <i>{this.state.phone}</i></p>
                             <Button color="primary" >Update Your Info</Button>
                         </section>
                         <section class="4u">                            
@@ -113,7 +99,9 @@ export default class Dashboard extends Component{
             </div>
         )
     }
+    
 
 }
-    
+
+
 

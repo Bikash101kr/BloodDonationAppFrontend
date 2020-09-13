@@ -141,7 +141,7 @@ export default function UpdateDonation(props) {
             </FormGroup>
                 
                 <Button block color="primary" onClick={this.handleSubmit}>Submit</Button>
-                <Button block color='warning' onClick={() => this.props.history.push('/')}>Cancel</Button>
+                <Button block color='warning' onClick={() => this.props.history.push('/dash/viewdonations')}>Cancel</Button>
             </Form>
         </div>
         )
