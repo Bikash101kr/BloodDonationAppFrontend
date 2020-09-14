@@ -6,6 +6,7 @@ import jwtDecode from 'jwt-decode';
 
 
 
+
 export default class Login extends Component {
     constructor(props) {
         super(props)
@@ -34,7 +35,7 @@ export default class Login extends Component {
 
     login(user).then(res => {
       if (res) {
-        this.props.history.push(`/profile`)
+        this.props.history.push(`/userdash`)
       }
     })
 
@@ -52,9 +53,9 @@ export default class Login extends Component {
 
     render() {
         if (this.state.isAdmin) {
-            return <Redirect to='/admin' />
+            return <Redirect to='/admindash' />
         } else if (this.state.isBasic) {
-            return <Redirect to='/dash/' />
+            return <Redirect to='/userdash/' />
         }
         return (
             
@@ -74,7 +75,8 @@ export default class Login extends Component {
                     </FormGroup>
                     <Button block color="primary">Login</Button>
                 </Form>
-
+                <hr/>
+               
             </div>
         )
     }

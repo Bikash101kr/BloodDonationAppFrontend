@@ -1,5 +1,5 @@
 import React from 'react'
-import {  Button } from 'reactstrap'
+import { Button } from 'reactstrap'
 
 
 export default function homepage(props) {
@@ -23,7 +23,13 @@ export default function homepage(props) {
                                         <h1>DONATE NOW</h1>
 									</header>
 									<Button color="primary" onClick={() => props.history.push('/login')}>Login</Button>
-                                    <Button color="primary" onClick={() => props.history.push('/register')}>Register</Button>
+									<hr />
+									
+                
+                    <p className="lead"> New user?      
+                    <Button color="transparent" onClick={() => props.history.push('/register')}>   Register here!  </Button>
+                    </p>
+               
 								</section>	
 										
 							</div>

@@ -11,9 +11,9 @@ import Home from './components/Home';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import PrivateRoute from './components/PrivateRoute';
 import NoMatch from './components/NoMatch';
-import AdminDash from './components/dashboard/AdminDash';
+import AdminDash from './components/Admin/AdminDash';
 import AdminRoute from './components/AdminRoute';
-import Dashboard from './components/dashboard/Dashboard';
+import UserDashboard from './components/dashboard/UserDashboard';
 import Profile from './components/Profile'
 import AddDonation from './components/dashboard/AddDonation';
 import ViewDonations from './components/dashboard/ViewDonations';
@@ -27,8 +27,8 @@ function App() {
         <Route path="/" exact component={Home} />
         <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
-          <PrivateRoute path='/'  component={Dashboard} />
-          <AdminRoute path='/admin' component={AdminDash} />
+          <PrivateRoute path='/userdash'  component={UserDashboard} />
+          <AdminRoute path='/admindash' component={AdminDash} />
           <PrivateRoute path='/profile' exact component={Profile} />
           <PrivateRoute path='/dashboard/AddDonation' component={AddDonation} />
           <PrivateRoute path='/dashboard/ViewDonations' component={ViewDonations} />

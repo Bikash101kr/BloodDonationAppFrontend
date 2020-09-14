@@ -10,6 +10,7 @@ import UpdateRequests from './dashboard/UpdatedRequest';
 import UpdateDonations from './dashboard/UpdatedDonation';
 import BloodBank from './dashboard/BloodBank';
 import Profile from './Profile';
+import ViewProfileDetails from './ViewProfileDetails';
 import ViewRequestDetails from './dashboard/ViewRequestDetails';
 import Login from './Login';
 
@@ -22,28 +23,28 @@ export default function NavBar(props) {
             <Nav id="nav" className='mr-auto' >
                     <ul id="navul">
                        <NavItem id="navitem">
-                            <Link to='/dash/nav'>User Profile</Link>
+                            <Link to='/userdash/nav'>User Profile</Link>
                             <ul>
-                                <Link to='/dash/profile' id="navlist">View Profile</Link>
-                                <Link to='/dash/profile' id="navlist">Edit Profile</Link>
+                                <Link to='/userdash/viewprofiledetails' id="navlist">View Profile</Link>
+                                <Link to='/userdash/profile' id="navlist">Edit Profile</Link>
                             </ul>
                         </NavItem>
                         <NavItem id="navitem">
-                            <NavLink to='/dash/nav'>Donate Blood</NavLink>
+                            <NavLink to='/userdash/nav'>Donate Blood</NavLink>
                             <ul>
-                                <Link to='/dash/viewdonations' id="navlist">View Donations</Link>
-                                <Link to='/dash/adddonation' id="navlist">Add Donation</Link>
+                                <Link to='/userdash/viewdonations' id="navlist">View Donations</Link>
+                                <Link to='/userdash/adddonation' id="navlist">Add Donation</Link>
                             </ul>
                         </NavItem >
                         <NavItem id="navitem">
-                            <NavLink to='/dash/nav'>Request Blood</NavLink>
+                            <NavLink to='/userdash/nav'>Request Blood</NavLink>
                             <ul>
-                                <Link to='/dash/viewrequests' id="navlist">View Requests</Link>
-                                <Link to='/dash/addrequest' id="navlist">Add Request</Link>
+                                <Link to='/userdash/viewrequests' id="navlist">View Requests</Link>
+                                <Link to='/userdash/addrequest' id="navlist">Add Request</Link>
                             </ul>
                         </NavItem>
                         <NavItem id="navitem">
-                            <NavLink to='/dash/bloodBank'>Blood Bank</NavLink>
+                            <NavLink to='/userdash/bloodBank'>Blood Bank</NavLink>
                         </NavItem>
                     </ul>
                 </Nav>
@@ -53,10 +54,11 @@ export default function NavBar(props) {
             </Navbar>
             <Switch>
                 <PrivateRoute path='/dash/adddonation' component={AddDonation} />
-                <PrivateRoute path='/dash/viewdonations' component={ViewDonations} />
+                <Route path='/dash/viewdonations' component={ViewDonations} />
                 <PrivateRoute path='/dash/addrequest' component={AddRequest} />
                 <PrivateRoute path='/dash/viewrequests' component={ViewRequests} />
                 <PrivateRoute path='/dash/profile' component={Profile} />
+                <PrivateRoute path='/dash/viewprofiledetails' component={ViewProfileDetails} />
                 <PrivateRoute path='/dash/bloodBank' component={BloodBank} />
                 <PrivateRoute path='/dash/updaterequests/:id' component={UpdateRequests} />
                <PrivateRoute path='/dash/updatedonations/:id' component={UpdateDonations} />
