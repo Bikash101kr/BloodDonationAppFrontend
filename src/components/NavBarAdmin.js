@@ -17,7 +17,10 @@ import Login from './Login';
 import AdminViewDonations from './Admin/AdminViewDonations';
 import UpdateDonationStatus from './Admin/UpdateDonationStatus'
 import AdminViewRequests from './Admin/AdminViewRequests';
-
+import AdminViewUsers from './Admin/AdminViewUsers'
+import AdminBloodBank from './Admin/AdminBloodBank'
+import AdminAddBloodBank from './Admin/AdminAddBloodBank'
+import UpdateBloodBank from './Admin/UpdateBloodBank'
 export default function NavBarAdmin(props) {
 
     return (
@@ -34,7 +37,7 @@ export default function NavBarAdmin(props) {
                             </ul>
                         </NavItem>
                         <NavItem id="navitem">
-                            <NavLink to='/admindash/nav'>Users List</NavLink>
+                            <NavLink to='/admindash/adminviewusers'>Users List</NavLink>
                         </NavItem >
                         <NavItem id="navitem">
                             <NavLink to='/admindash/adminviewdonations'>Donations List</NavLink>
@@ -44,6 +47,10 @@ export default function NavBarAdmin(props) {
                         </NavItem>
                         <NavItem id="navitem">
                             <NavLink to='/admindash/nav'>Blood Bank</NavLink>
+                            <ul>
+                                <Link to='/admindash/adminaddbloodbank' id="navlist">Add Blood Bank</Link>
+                                <Link to='/admindash/adminbloodbanks' id="navlist">View Blood Banks</Link>
+                            </ul>
                         </NavItem>
                     </ul>
                 </Nav>
@@ -63,8 +70,13 @@ export default function NavBarAdmin(props) {
                <PrivateRoute path='/admindash/updatedonations/:id' component={UpdateDonations} />
                <PrivateRoute path='/admindash/viewrequestdetails/:id' component={ViewRequestDetails} />
                <AdminRoute path='/admindash/adminviewdonations' component={AdminViewDonations} />
-               <AdminRoute path='/admindash/updatedonationstatus' component={UpdateDonationStatus} />
+               <AdminRoute path='/admindash/updatedonationstatus/:id' component={UpdateDonationStatus} />
                <AdminRoute path='/admindash/adminviewrequests' component={AdminViewRequests} />
+               <AdminRoute path='/admindash/adminviewusers' component={AdminViewUsers} />
+               <AdminRoute path='/admindash/adminbloodbanks' component={AdminBloodBank} />
+               <AdminRoute path='/admindash/adminaddbloodbank' component={AdminAddBloodBank} />
+               <AdminRoute path='/admindash/updatebloodbank/:id' component={UpdateBloodBank} />
+
 
                <Route path = '/login' component={Login}/>
               

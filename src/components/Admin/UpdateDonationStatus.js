@@ -42,7 +42,7 @@ export default function UpdateDonationStatus(props) {
     }
     handleSubmit = (event) => {
         event.preventDefault();
-		axios.put('http://localhost:3000/api/Admin/' + this.props.id, this.state, this.state.config)
+		axios.put('http://localhost:3000/api/Admin/' + this.props.id + '/status', this.state, this.state.config)
 		.then((res) => {
 			console.log(res)
 		}).catch(err => console.log(err.response.data));

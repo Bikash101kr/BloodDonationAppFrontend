@@ -34,7 +34,7 @@ export default class BloodBanks extends Component {
 
   handleUpdateClick = (id) => {
 	  console.log(id)
-	  this.props.history.push(`/admindash/updatebloodbanks/${id}`);
+	  this.props.history.push(`/admindash/updatebloodbank/${id}`);
   }
 
 componentDidMount(){
@@ -77,7 +77,12 @@ render() {
                   onClick={() => this.handleViewClick(bloodbank._id)}>
                     View
                   </Link>
-                  
+                  <Link class="btn btn-outline-primary mr-2"
+                  onClick={() => this.handleUpdateClick(bloodbank._id)}>
+                    Edit
+                  </Link>
+                  <Link class="btn btn-danger"
+                  onClick={() => this.handleDelete(bloodbank._id)}>Delete</Link>
                 </td>
               </tr>
               ))}

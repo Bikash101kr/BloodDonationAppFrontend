@@ -53,16 +53,16 @@ export default function NavBar(props) {
                 </NavbarText>
             </Navbar>
             <Switch>
-                <PrivateRoute path='/dash/adddonation' component={AddDonation} />
-                <Route path='/dash/viewdonations' component={ViewDonations} />
-                <PrivateRoute path='/dash/addrequest' component={AddRequest} />
-                <PrivateRoute path='/dash/viewrequests' component={ViewRequests} />
-                <PrivateRoute path='/dash/profile' component={Profile} />
-                <PrivateRoute path='/dash/viewprofiledetails' component={ViewProfileDetails} />
-                <PrivateRoute path='/dash/bloodBank' component={BloodBank} />
-                <PrivateRoute path='/dash/updaterequests/:id' component={UpdateRequests} />
-               <PrivateRoute path='/dash/updatedonations/:id' component={UpdateDonations} />
-               <PrivateRoute path='/dash/viewrequestdetails/:id' component={ViewRequestDetails} />
+                <PrivateRoute path='/userdash/adddonation' component={AddDonation} />
+                <Route path='/userdash/viewdonations' component={ViewDonations} />
+                <PrivateRoute path='/userdash/addrequest' component={AddRequest} />
+                <PrivateRoute path='/userdash/viewrequests' component={ViewRequests} />
+                <PrivateRoute path='/userdash/profile' component={Profile} />
+                <PrivateRoute path='/userdash/viewprofiledetails' component={ViewProfileDetails} />
+                <PrivateRoute path='/userdash/bloodbank' component={BloodBank} />
+                <PrivateRoute path='/userdash/updaterequests/:id' component={UpdateRequests} />
+               <PrivateRoute path='/userdash/updatedonations/:id' component={UpdateDonations} />
+               <PrivateRoute path='/userdash/viewrequestdetails/:id' component={ViewRequestDetails} />
                <Route path = '/login' component={Login}/>
               
             </Switch>
