@@ -73,10 +73,6 @@ render() {
             <td>{bloodbank.availableBloodGroup}
             </td>
                 <td>
-                <Link class="btn btn-primary mr-2"
-                  onClick={() => this.handleViewClick(bloodbank._id)}>
-                    View
-                  </Link>
                   <Link class="btn btn-outline-primary mr-2"
                   onClick={() => this.handleUpdateClick(bloodbank._id)}>
                     Edit
