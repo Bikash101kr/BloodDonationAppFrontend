@@ -60,8 +60,6 @@ render() {
               <th scope="col">Blood Bank Name</th>
               <th scope="col">Available Blood Group</th>
               
-        
-              <th>Action</th>
             </tr>
           </thead>
           <tbody>
@@ -72,13 +70,6 @@ render() {
             </td>
             <td>{bloodbank.availableBloodGroup}
             </td>
-                <td>
-                <Link class="btn btn-primary mr-2"
-                  onClick={() => this.handleViewClick(bloodbank._id)}>
-                    View
-                  </Link>
-                  
-                </td>
               </tr>
               ))}
           </tbody>

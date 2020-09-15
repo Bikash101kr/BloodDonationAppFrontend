@@ -35,7 +35,7 @@ export default class Login extends Component {
 
     login(user).then(res => {
       if (res) {
-        this.props.history.push(`/userdash`)
+        this.props.history.push(`/userdash/:id`)
       }
     })
 
@@ -43,7 +43,7 @@ export default class Login extends Component {
         axios.post('http://localhost:3000/api/users/login', this.state)
             .then((res) => {
                 console.log(res);
-                localStorage.setItem('token', res.data.token);
+                localStorage.setItem('token',res.data.token);
                 let user = jwtDecode(res.data.token.split(' ')[1]);
                 if (user.role === 'admin') this.setState({ isAdmin: true })
                 else this.setState({ isBasic: true })
@@ -53,9 +53,9 @@ export default class Login extends Component {
 
     render() {
         if (this.state.isAdmin) {
-            return <Redirect to='/admindash' />
+            return <Redirect to='/admindash/:id' />
         } else if (this.state.isBasic) {
-            return <Redirect to='/userdash/' />
+            return <Redirect to='/userdash/:id' />
         }
         return (
             

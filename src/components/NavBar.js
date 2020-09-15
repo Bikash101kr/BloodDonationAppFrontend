@@ -26,7 +26,7 @@ export default function NavBar(props) {
                             <Link to='/userdash/nav'>User Profile</Link>
                             <ul>
                                 <Link to='/userdash/viewprofiledetails' id="navlist">View Profile</Link>
-                                <Link to='/userdash/profile' id="navlist">Edit Profile</Link>
+                                <Link to='/userdash/profile/:id' id="navlist">Edit Profile</Link>
                             </ul>
                         </NavItem>
                         <NavItem id="navitem">
@@ -57,13 +57,13 @@ export default function NavBar(props) {
                 <Route path='/userdash/viewdonations' component={ViewDonations} />
                 <PrivateRoute path='/userdash/addrequest' component={AddRequest} />
                 <PrivateRoute path='/userdash/viewrequests' component={ViewRequests} />
-                <PrivateRoute path='/userdash/profile' component={Profile} />
+                <PrivateRoute path='/userdash/profile/:id' component={Profile} />
                 <PrivateRoute path='/userdash/viewprofiledetails' component={ViewProfileDetails} />
                 <PrivateRoute path='/userdash/bloodbank' component={BloodBank} />
                 <PrivateRoute path='/userdash/updaterequests/:id' component={UpdateRequests} />
                <PrivateRoute path='/userdash/updatedonations/:id' component={UpdateDonations} />
                <PrivateRoute path='/userdash/viewrequestdetails/:id' component={ViewRequestDetails} />
-               <Route path = '/login' component={Login}/>
+               <Route path = '/login/:id' component={Login}/>
               
             </Switch>
         </div>

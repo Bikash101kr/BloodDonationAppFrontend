@@ -1,6 +1,4 @@
 import React  from 'react'
-import axios from 'axios'
-import {  } from 'reactstrap'
 import jwt_decode from 'jwt-decode'
 
 export default class ViewProfileDetails extends React.Component{
@@ -30,30 +28,22 @@ export default class ViewProfileDetails extends React.Component{
     const token = localStorage.getItem('token')
     const decoded=jwt_decode(token)
       this.setState({
-                username: decoded.username,
-                firstName: decoded.firstName,
-                lastName: decoded.lastName,
-                phone: decoded.phone,
-                role: decoded.role,
-                profileID: decoded.pro_id
+        username: decoded.username,
+        firstName: decoded.firstName,
+        lastName: decoded.lastName,
+        phone: decoded.phone,
+        role: decoded.role,
+        email:decoded.email ,
+        dateOfBirth: decoded.dateOfBirth,
+        gender: decoded.gender,
+        bloodGroup: decoded.bloodGroup,
+        lastDonation:decoded.lastDonation,
+        image:decoded.image,
+        UserId: decoded.user_id,
             
             
       })
-        axios.get("http://localhost:3000/api/profile/" + decoded.pro_id, {
-            headers: { 'Authorization': localStorage.getItem('token') }
-        })
-        .then ((res) => {
-            console.log(res.data)
-            this.setState({
-                profileId: res.data.id,
-                email:res.data.email,
-                dateOfBirth:res.data.dateOfBirth,
-                gender: res.data.gender,
-                bloodGroup:res.data.bloodGroup,
-                lastDonation:res.data.lastDonation
-            })
-           
-        }).catch(err => console.log(err.response));
+    
     }
     
     

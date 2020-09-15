@@ -46,11 +46,11 @@ export default class ViewRequests extends Component {
 
   handleUpdateClick = (id) => {
 	  console.log(id)
-	  this.props.history.push(`/dash/updaterequests/${id}`);
+	  this.props.history.push(`/userdash/updaterequests/${id}`);
   }
   handleViewClick = (id) => {
 	  console.log(id)
-	  this.props.history.push(`/dash/viewrequestdetails/${id}`);
+	  this.props.history.push(`/userdash/viewrequestdetails/${id}`);
   }
 
 

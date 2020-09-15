@@ -27,8 +27,8 @@ function App() {
         <Route path="/" exact component={Home} />
         <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
-          <PrivateRoute path='/userdash'  component={UserDashboard} />
-          <AdminRoute path='/admindash' component={AdminDash} />
+          <PrivateRoute path='/userdash/:id'  component={UserDashboard} />
+          <AdminRoute path='/admindash/:id' component={AdminDash} />
           <PrivateRoute path='/profile' exact component={Profile} />
           <PrivateRoute path='/dashboard/AddDonation' component={AddDonation} />
           <PrivateRoute path='/dashboard/ViewDonations' component={ViewDonations} />

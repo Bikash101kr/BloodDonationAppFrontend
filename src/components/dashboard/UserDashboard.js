@@ -1,8 +1,6 @@
 import React, {Component} from 'react'
-import { Button } from 'reactstrap'
 import NavBar from '../NavBar'
 import jwt_decode from 'jwt-decode'
-import axios from 'axios'
 import bloodbank from '../css/images/bloodbank.png'
 import users from '../css/images/users.png'
 import bloodgroup from '../css/images/bloodgroups.jpg'
@@ -13,7 +11,6 @@ export default class UserDashboard extends Component{
         super(props)
 
         this.state = {
-            profileId:'',
             username: '',
             firstName: '',
             lastName:'',
@@ -33,28 +30,20 @@ export default class UserDashboard extends Component{
     const token = localStorage.getItem('token')
     const decoded=jwt_decode(token)
       this.setState({
-                username: decoded.username,
-                firstName: decoded.firstName,
-                lastName: decoded.lastName,
-                phone: decoded.phone,
-                role: decoded.role,
-                profileID: decoded.pro_id
+        username: decoded.username,
+        firstName: decoded.firstName,
+        lastName: decoded.lastName,
+        phone: decoded.phone,
+        role: decoded.role,
+        email:decoded.email ,
+        dateOfBirth: decoded.dateOfBirth,
+        gender: decoded.gender,
+        bloodGroup: decoded.bloodGroup,
+        lastDonation:decoded.lastDonation,
+        image:decoded.image,
+        UserId: decoded.id,
       })
-        axios.get('http://localhost:3000/api/profile/' + decoded.pro_id, {
-            headers: { 'Authorization': localStorage.getItem('token') }
-    }).then ((res) => {
-            this.setState({
-                profileId: res.data.id,
-                email:res.data.email,
-                dateOfBirth:res.data.dateOfBirth,
-                gender: res.data.gender,
-                bloodGroup:res.data.bloodGroup,
-                lastDonation:res.data.lastDonation
-                
-
-            })
-           
-        }).catch(err => console.log(err.response));
+        
     }
     
     

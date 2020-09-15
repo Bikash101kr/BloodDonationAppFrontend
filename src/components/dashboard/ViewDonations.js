@@ -40,7 +40,7 @@ export default class ViewDonations extends Component {
 
   handleUpdateClick = (id) => {
 	  console.log(id)
-	  this.props.history.push(`/dash/updatedonations/${id}`);
+	  this.props.history.push(`/userdash/updatedonations/${id}`);
   }
 
 componentDidMount(){
