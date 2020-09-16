@@ -12,11 +12,14 @@ export default function NavBarAdmin(props) {
             <Navbar color='dark' dark expand='md'>
             <Nav id="nav" className='mr-auto' >
                     <ul id="navul">
+                    <NavItem id="navitem">
+                            <Link to='/admindash/nav'>Dashboard</Link>                            
+                        </NavItem>
                        <NavItem id="navitem">
                             <Link to='/admindash/nav'>Admin Profile</Link>
                             <ul>
-                                <Link to='/admindashboard/viewprofiledetails' id="navlist">View Profile</Link>
-                                <Link to='/admindashboard/profile' id="navlist">Edit Profile</Link>
+                                <Link to='/admindashboard/viewprofile' id="navlist">View Profile</Link>
+                                <Link to='/admindashboard/updateprofile' id="navlist">Edit Profile</Link>
                             </ul>
                         </NavItem>
                         <NavItem id="navitem">

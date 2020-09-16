@@ -33,7 +33,10 @@ import AdminAddBloodBank from './components/Admin/AdminAddBloodBank';
 import AdminViewUserDetails from './components/Admin/AdminViewUserDetails';
 import UpdateBloodBank from './components/Admin/UpdateBloodBank';
 import UpdateUserRole from'./components/Admin/UpdateUserRole';
-
+import UpdateProfile from './components/Admin/UpdateProfile';
+import ViewProfile from './components/Admin/ViewProfile';
+import AdminViewRequestDetails from './components/Admin/AdminViewRequestDetails';
+import AdminUpdateRequest from './components/Admin/AdminUpdateRequest';
 function App() {
   return (
     <div>
@@ -56,8 +59,8 @@ function App() {
           <PrivateRoute path='/userdashboard/viewrequestdetails/:id' component={ViewRequestDetails} />
 
           <AdminRoute path='/admindash/'  component={AdminDash} />
-          <AdminRoute path='/admindashboard/profile/' component={Profile} />
-          <AdminRoute path='/admindashboard/viewprofiledetails' component={ViewProfileDetails} />
+          <AdminRoute path='/admindashboard/updateprofile/' component={UpdateProfile} />
+          <AdminRoute path='/admindashboard/viewprofile' component={ViewProfile} />
           <AdminRoute path='/admindashboard/updatedonationstatus/:id' component={UpdateDonationStatus} />
                <AdminRoute path='/admindashboard/adminviewrequests' component={AdminViewRequests} />
                <AdminRoute path='/admindashboard/adminviewusers' component={AdminViewUsers} />
@@ -67,7 +70,8 @@ function App() {
                <AdminRoute path='/admindashboard/viewuserdetails/:id' component={AdminViewUserDetails}/>
                <AdminRoute path='/admindashboard/updateuserrole/:id' component={UpdateUserRole}/>
                <AdminRoute path='/admindashboard/adminviewdonations' component={AdminViewDonations} />
-               <AdminRoute path='/admindashboard/viewrequestdetails/:id' component={ViewRequestDetails} />
+               <AdminRoute path='/admindashboard/adminviewrequestdetails/:id' component={AdminViewRequestDetails} />
+               <AdminRoute path ='/admindashboard/adminupdaterequest/:id' component={AdminUpdateRequest}/>
         
           <Route>
             <NoMatch />

@@ -10,6 +10,9 @@ export default function NavBar(props) {
             <Navbar color='dark' dark expand='md'>
             <Nav id="nav" className='mr-auto' >
                     <ul id="navul">
+                    <NavItem id="navitem">
+                            <Link to='/userdash/nav'>Dashboard</Link>                            
+                        </NavItem>
                        <NavItem id="navitem">
                             <Link to='/userdash/nav'>User Profile</Link>
                             <ul>

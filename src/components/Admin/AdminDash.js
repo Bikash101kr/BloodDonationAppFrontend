@@ -4,7 +4,8 @@ import jwt_decode from 'jwt-decode'
 import bloodbank from '../css/images/bloodbank.png'
 import users from '../css/images/users.png'
 import bloodgroup from '../css/images/bloodgroups.jpg'
-
+import BloodBankList from './BloodBankList';
+import AdminUserList from './AdminUserList';
 export default class AdminDashboard extends Component{
     constructor(props) {
         super(props)
@@ -60,18 +61,14 @@ export default class AdminDashboard extends Component{
                                                  
                             <a href="!#" class="image feature"></a>
                             <img src={users} alt="Users" />
-                            <h3>Your Info</h3>
-                            <p>Full Name : <i>{this.state.firstName} {this.state.lastName}</i></p>
-                            <p>Username: <i>{this.state.username}</i></p>
-                            <p>Blood Group: <i>{this.state.bloodGroup}</i></p>
-                            <p>Phone Number : <i>{this.state.phone}</i></p>
-                            <p>Role : <i>{this.state.role}</i></p>
+                            <h3>Users List </h3>
+                            <AdminUserList/>
                         </section>
                         <section class="4u">                            
                             <a href="/!#" class="image feature"></a>
                             <img src={bloodbank} alt="bloodbank" />
                             <h3>Blood Bank</h3>
-                            <p>Available blood bank will be displayed here</p>
+                            <BloodBankList/>
                     
                         </section>
                         <section class="4u">

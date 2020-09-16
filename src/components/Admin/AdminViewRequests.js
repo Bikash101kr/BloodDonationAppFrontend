@@ -48,11 +48,11 @@ export default class AdminViewRequests extends Component {
 
   handleUpdateClick = (id) => {
 	  console.log(id)
-	  this.props.history.push(`/admindashboard/updaterequest/${id}`);
+	  this.props.history.push(`/admindashboard/adminupdaterequest/${id}`);
   }
   handleViewClick = (id) => {
 	  console.log(id)
-	  this.props.history.push(`/admindashboard/viewrequestdetails/${id}`);
+	  this.props.history.push(`/admindashboard/adminviewrequestdetails/${id}`);
   }
 
 
