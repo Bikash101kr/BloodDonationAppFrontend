@@ -24,7 +24,16 @@ import BloodBank from './components/dashboard/BloodBank';
 import ViewRequestDetails from './components/dashboard/ViewRequestDetails';
 import UpdatedDonation from './components/dashboard/UpdatedDonation';
 import UpdatedRequest from './components/dashboard/UpdatedRequest';
-import NavBar from './components/NavBar';
+import AdminViewDonations from './components/Admin/AdminViewDonations';
+import UpdateDonationStatus from './components/Admin/UpdateDonationStatus';
+import AdminViewRequests from './components/Admin/AdminViewRequests';
+import AdminViewUsers from './components/Admin/AdminViewUsers';
+import AdminBloodBank from './components/Admin/AdminBloodBank';
+import AdminAddBloodBank from './components/Admin/AdminAddBloodBank';
+import AdminViewUserDetails from './components/Admin/AdminViewUserDetails';
+import UpdateBloodBank from './components/Admin/UpdateBloodBank';
+import UpdateUserRole from'./components/Admin/UpdateUserRole';
+
 function App() {
   return (
     <div>
@@ -45,6 +54,20 @@ function App() {
           <PrivateRoute path='/userdashboard/updaterequest/:id' component={UpdatedRequest} />
           <PrivateRoute path='/userdashboard/updatedonation/:id' component={UpdatedDonation} />
           <PrivateRoute path='/userdashboard/viewrequestdetails/:id' component={ViewRequestDetails} />
+
+          <AdminRoute path='/admindash/'  component={AdminDash} />
+          <AdminRoute path='/admindashboard/profile/' component={Profile} />
+          <AdminRoute path='/admindashboard/viewprofiledetails' component={ViewProfileDetails} />
+          <AdminRoute path='/admindashboard/updatedonationstatus/:id' component={UpdateDonationStatus} />
+               <AdminRoute path='/admindashboard/adminviewrequests' component={AdminViewRequests} />
+               <AdminRoute path='/admindashboard/adminviewusers' component={AdminViewUsers} />
+               <AdminRoute path='/admindashboard/adminbloodbanks' component={AdminBloodBank} />
+               <AdminRoute path='/admindashboard/adminaddbloodbank' component={AdminAddBloodBank} />
+               <AdminRoute path='/admindashboard/updatebloodbank/:id' component={UpdateBloodBank} />
+               <AdminRoute path='/admindashboard/viewuserdetails/:id' component={AdminViewUserDetails}/>
+               <AdminRoute path='/admindashboard/updateuserrole/:id' component={UpdateUserRole}/>
+               <AdminRoute path='/admindashboard/adminviewdonations' component={AdminViewDonations} />
+               <AdminRoute path='/admindashboard/viewrequestdetails/:id' component={ViewRequestDetails} />
         
           <Route>
             <NoMatch />

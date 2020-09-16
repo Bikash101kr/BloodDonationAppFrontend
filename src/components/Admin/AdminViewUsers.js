@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from "react-router-dom";
 import Axios from 'axios'
+import NavBarAdmin from '../NavBarAdmin'
 
 export default class AdminViewUsers extends Component {
   constructor(props){
@@ -39,11 +40,11 @@ export default class AdminViewUsers extends Component {
 
   handleUpdateClick = (id) => {
 	  console.log(id)
-	  this.props.history.push(`/admindash/updateuserrole/${id}`);
+	  this.props.history.push(`/admindashboard/updateuserrole/${id}`);
   }
   handleViewClick = (id) => {
 	  console.log(id)
-	  this.props.history.push(`/admindash/viewuserdetails/${id}`);
+	  this.props.history.push(`/admindashboard/viewuserdetails/${id}`);
   }
 
 
@@ -59,6 +60,9 @@ componentDidMount(){
 
 render() {
   return (
+    <div>
+      <NavBarAdmin/>
+    
       <div className='container'>
          
          <div className="py-4">
@@ -104,6 +108,7 @@ render() {
               ))}
           </tbody>
         </table>
+      </div>
       </div>
       </div>
   )

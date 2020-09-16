@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import { Form, FormGroup, Label, Input, Button} from 'reactstrap'
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
-
+import NavBarAdmin from '../NavBarAdmin'
 
 export default function UpdateBloodBank(props) {
 	let {id} = useParams();
@@ -60,6 +60,8 @@ export default function UpdateBloodBank(props) {
 
     render(){
         return(
+            <div>
+                <NavBarAdmin/>
             
             <div className='container'>
             <Form>
@@ -81,6 +83,7 @@ export default function UpdateBloodBank(props) {
                 <Button block color="primary" onClick={this.handleSubmit}>Submit</Button>
                 <Button block color='warning' onClick={() => this.props.history.push('/admindash/adminviewdonations')}>Cancel</Button>
             </Form>
+        </div>
         </div>
         )
     }

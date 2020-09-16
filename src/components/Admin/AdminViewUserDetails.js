@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
-import { Form, FormGroup, Label, Input,} from 'reactstrap'
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
+import NavBarAdmin from '../NavBarAdmin'
 
 
 export default function AdminUserDetails(props) {
@@ -66,6 +66,8 @@ export default function AdminUserDetails(props) {
 
     render(){
         return(
+            <div>
+                <NavBarAdmin/>
             
             <div id="main" class="wrapper style1">
             <section class="container">
@@ -84,6 +86,7 @@ export default function AdminUserDetails(props) {
                         </section>
                 
             </section> 
+            </div>
             </div>
        
         )

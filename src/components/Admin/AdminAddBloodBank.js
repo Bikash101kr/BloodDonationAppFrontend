@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap'
 import axios from 'axios'
-
+import NavBarAdmin from '../NavBarAdmin'
 export default class AdminAddBloodBank extends Component{
 
    constructor(props) {
@@ -31,6 +31,9 @@ export default class AdminAddBloodBank extends Component{
     }
     render(){
         return(
+            <div>
+                <NavBarAdmin/>
+            
             <div className='container'>
             <Form>
                 <FormGroup>
@@ -51,6 +54,7 @@ export default class AdminAddBloodBank extends Component{
                 <Button block color="primary" onClick={this.handleSubmit}>Submit</Button>
                 <Button block color='warning' onClick={() => this.props.history.push('/')}>Cancel</Button>
             </Form>
+        </div>
         </div>
         )
     }

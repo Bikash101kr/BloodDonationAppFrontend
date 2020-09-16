@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from "react-router-dom";
 import Axios from 'axios'
+import NavBarAdmin from '../NavBarAdmin'
 
 export default class AdminViewDonations extends Component {
   constructor(props){
@@ -41,7 +42,7 @@ export default class AdminViewDonations extends Component {
 
   handleUpdateClick = (id) => {
 	  console.log(id)
-	  this.props.history.push(`/admindash/updatedonationstatus/${id}`);
+	  this.props.history.push(`/admindashboard/updatedonationstatus/${id}`);
   }
 
 componentDidMount(){
@@ -56,6 +57,9 @@ componentDidMount(){
 
 render() {
   return (
+    <div>
+      <NavBarAdmin/>
+
       <div className='container'>
          
          <div className="py-4">
@@ -96,6 +100,7 @@ render() {
               ))}
           </tbody>
         </table>
+      </div>
       </div>
       </div>
   )

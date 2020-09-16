@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import { Form, FormGroup, Label, Input, Button} from 'reactstrap'
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
-
+import NavBarAdmin from '../NavBarAdmin'
 
 export default function UpdateUserRole(props) {
 	let {id} = useParams();
@@ -65,6 +65,9 @@ export default function UpdateUserRole(props) {
 
     render(){
         return(
+            <div>
+                <NavBarAdmin/>
+            
             
             <div className='container'>
             <Form>
@@ -83,6 +86,7 @@ export default function UpdateUserRole(props) {
                 <Button block color="primary" onClick={this.handleSubmit}>Submit</Button>
                 <Button block color='warning' onClick={() => this.props.history.push('/dash/viewdonations')}>Cancel</Button>
             </Form>
+        </div>
         </div>
         )
     }

@@ -1,12 +1,9 @@
 import React, {Component} from 'react'
 import NavBarAdmin from '../NavBarAdmin'
 import jwt_decode from 'jwt-decode'
-import axios from 'axios'
 import bloodbank from '../css/images/bloodbank.png'
 import users from '../css/images/users.png'
 import bloodgroup from '../css/images/bloodgroups.jpg'
-
-
 
 export default class AdminDashboard extends Component{
     constructor(props) {
