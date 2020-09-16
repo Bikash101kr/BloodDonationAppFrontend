@@ -91,12 +91,6 @@ export default class UpdateProfile extends React.Component{
             <div className='container'>
     <Form>
     <FormGroup>
-    <Label for="username">Username</Label>
-        <Input name='username' type='text' 
-            value={this.state.username}
-            onChange={this.handleChange} />
-    </FormGroup>
-    <FormGroup>
     <Label for="firstName">First Name</Label>
         <Input name='firstName' type='text'
             value={this.state.firstName}
