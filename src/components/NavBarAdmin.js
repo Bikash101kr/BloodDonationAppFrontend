@@ -15,12 +15,15 @@ import ViewProfileDetails from './ViewProfileDetails';
 import ViewRequestDetails from './dashboard/ViewRequestDetails';
 import Login from './Login';
 import AdminViewDonations from './Admin/AdminViewDonations';
-import UpdateDonationStatus from './Admin/UpdateDonationStatus'
+import UpdateDonationStatus from './Admin/UpdateDonationStatus';
 import AdminViewRequests from './Admin/AdminViewRequests';
-import AdminViewUsers from './Admin/AdminViewUsers'
-import AdminBloodBank from './Admin/AdminBloodBank'
-import AdminAddBloodBank from './Admin/AdminAddBloodBank'
-import UpdateBloodBank from './Admin/UpdateBloodBank'
+import AdminViewUsers from './Admin/AdminViewUsers';
+import AdminBloodBank from './Admin/AdminBloodBank';
+import AdminAddBloodBank from './Admin/AdminAddBloodBank';
+import AdminViewUserDetails from './Admin/AdminViewUserDetails';
+import UpdateBloodBank from './Admin/UpdateBloodBank';
+import UpdateUserRole from'./Admin/UpdateUserRole';
+
 export default function NavBarAdmin(props) {
 
     return (
@@ -55,7 +58,7 @@ export default function NavBarAdmin(props) {
                     </ul>
                 </Nav>
                 <NavbarText>
-                    <Button onClick= {() => this.props.history.push('/login')} color='warning' > Logout</Button>
+                    <Button onClick= {() => this.props.history.push('/')} color='warning' > Logout</Button>
                 </NavbarText>
             </Navbar>
             <Switch>
@@ -76,6 +79,8 @@ export default function NavBarAdmin(props) {
                <AdminRoute path='/admindash/adminbloodbanks' component={AdminBloodBank} />
                <AdminRoute path='/admindash/adminaddbloodbank' component={AdminAddBloodBank} />
                <AdminRoute path='/admindash/updatebloodbank/:id' component={UpdateBloodBank} />
+               <AdminRoute path='/admindash/viewuserdetails/:id' component={AdminViewUserDetails}/>
+               <AdminRoute path='/admindash/updateuserrole/:id' component={UpdateUserRole}/>
 
 
                <Route path = '/login' component={Login}/>

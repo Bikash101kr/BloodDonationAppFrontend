@@ -28,6 +28,7 @@ export default class AddDonation extends Component{
         }, ( ) => console.log(this.state))
     }
     handleSubmit = (event) => {
+        if(window.confirm('Are you ready to donate blood?'))
         event.preventDefault();
         axios.post('http://localhost:3000/api/DonateBlood', this.state,this.state.config)
             .then((res) => {

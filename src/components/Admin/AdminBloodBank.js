@@ -19,10 +19,11 @@ export default class BloodBanks extends Component {
   }
 
   handleDelete = (id) => {
+    if(window.confirm('Are you sure to remove this blood bank from the list?'))
 	Axios.delete('http://localhost:3000/api/BloodBank/' + id, this.state.config)
 	.then((res)=> {
-		const filteredBloodBank = this.state.bloodbanks.filter(req => {
-			return req._id !== id;
+		const filteredBloodBank = this.state.bloodbanks.filter(bloodBank => {
+			return bloodBank._id !== id;
 		});
 		console.log(filteredBloodBank);
 		this.setState({

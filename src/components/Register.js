@@ -23,6 +23,7 @@ export default class Register extends Component {
     }
 
     handleSubmit = (event) => {
+        if(window.confirm('Are you sure to register on serve humanity?'))
         event.preventDefault();
         axios.post('http://localhost:3000/api/users/register', this.state)
             .then((res) => {

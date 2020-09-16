@@ -41,6 +41,7 @@ export default function UpdateDonationStatus(props) {
         })
     }
     handleSubmit = (event) => {
+        if(window.confirm('Are you sure to update the user blood status ?'))
         event.preventDefault();
 		axios.put('http://localhost:3000/api/Admin/' + this.props.id + '/status', this.state, this.state.config)
 		.then((res) => {

@@ -25,6 +25,7 @@ export default class ViewDonations extends Component {
   }
 
   handleDelete = (id) => {
+    if(window.confirm('Are you sure to delete this donation from the list?'))
 	Axios.delete('http://localhost:3000/api/DonateBlood/' + id, this.state.config)
 	.then((res)=> {
 		const filteredDonateBlood = this.state.donatebloods.filter(req => {

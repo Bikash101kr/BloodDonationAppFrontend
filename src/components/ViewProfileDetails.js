@@ -7,7 +7,6 @@ export default class ViewProfileDetails extends React.Component{
         super(props)
 
         this.state = {
-            profileId: '',
             username: '',
             firstName: '',
             lastName:'',

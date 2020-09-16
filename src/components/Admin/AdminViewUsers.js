@@ -23,14 +23,15 @@ export default class AdminViewUsers extends Component {
   }
 
   handleDelete = (id) => {
-	Axios.delete('http://localhost:3000/api/RequestBlood/' + id, this.state.config)
+    if(window.confirm('Are you sure to remove this user from the list?'))
+	Axios.delete('http://localhost:3000/api/admin/' + id, this.state.config)
 	.then((res)=> {
-		const filteredReqBlood = this.state.requestbloods.filter(req => {
-			return req._id !== id;
+		const filteredUser = this.state.users.filter(user => {
+			return user._id !== id;
 		});
-		console.log(filteredReqBlood);
+		console.log(filteredUser);
 		this.setState({
-			requestbloods: filteredReqBlood
+			users: filteredUser
 		});
 	 
 	}).catch(err => console.log(err.response));
@@ -38,11 +39,11 @@ export default class AdminViewUsers extends Component {
 
   handleUpdateClick = (id) => {
 	  console.log(id)
-	  this.props.history.push(`/dash/updaterequests/${id}`);
+	  this.props.history.push(`/admindash/updateuserrole/${id}`);
   }
   handleViewClick = (id) => {
 	  console.log(id)
-	  this.props.history.push(`/dash/viewrequestdetails/${id}`);
+	  this.props.history.push(`/admindash/viewuserdetails/${id}`);
   }
 
 

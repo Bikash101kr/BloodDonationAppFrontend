@@ -35,6 +35,7 @@ export default function UpdateBloodBank(props) {
         })
     }
     handleSubmit = (event) => {
+        if(window.confirm('Are you sure to update the current status?'))
         event.preventDefault();
 		axios.put('http://localhost:3000/api/BloodBank/' + this.props.id, this.state, this.state.config)
 		.then((res) => {
@@ -43,10 +44,6 @@ export default function UpdateBloodBank(props) {
             
     }
 
-
-	handleUpdate = () => {
-		
-	}
 	
 	componentDidMount = () => {
 		axios.get('http://localhost:3000/api/BloodBank/' + this.state.id, this.state.config)

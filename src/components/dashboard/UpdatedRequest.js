@@ -47,6 +47,7 @@ export default function UpdateRequest(props) {
         })
     }
     handleSubmit = (event) => {
+        if(window.confirm('Are you sure to update your request details?'))
         event.preventDefault();
 		axios.put('http://localhost:3000/api/RequestBlood/' + this.props.id, this.state, this.state.config)
 		.then((res) => {

@@ -33,6 +33,7 @@ export default class AddRequest extends Component{
         })
     }
     handleSubmit = (event) => {
+        if(window.confirm('Are you sure to request blood?'))
         event.preventDefault();
         axios.post('http://localhost:3000/api/RequestBlood', this.state, this.state.config)
             .then((res) => {

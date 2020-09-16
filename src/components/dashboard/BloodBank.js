@@ -17,26 +17,6 @@ export default class BloodBanks extends Component {
         }
     }
   }
-
-  handleDelete = (id) => {
-	Axios.delete('http://localhost:3000/api/BloodBank/' + id, this.state.config)
-	.then((res)=> {
-		const filteredBloodBank = this.state.bloodbanks.filter(req => {
-			return req._id !== id;
-		});
-		console.log(filteredBloodBank);
-		this.setState({
-			bloodbanks: filteredBloodBank
-		});
-	 
-	}).catch(err => console.log(err.response));
-  }
-
-  handleUpdateClick = (id) => {
-	  console.log(id)
-	  this.props.history.push(`/admindash/updatebloodbanks/${id}`);
-  }
-
 componentDidMount(){
   Axios.get('http://localhost:3000/api/BloodBank', this.state.config)
   .then((res)=> {

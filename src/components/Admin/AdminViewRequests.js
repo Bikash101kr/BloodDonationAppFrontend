@@ -31,6 +31,7 @@ export default class AdminViewRequests extends Component {
   }
 
   handleDelete = (id) => {
+    if(window.confirm('Are you sure to remove this request from the list?'))
 	Axios.delete('http://localhost:3000/api/RequestBlood/' + id, this.state.config)
 	.then((res)=> {
 		const filteredReqBlood = this.state.requestbloods.filter(req => {

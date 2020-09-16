@@ -56,9 +56,10 @@ export default class Profile extends React.Component{
     }
 
     handleSubmit = (event) => {
-        event.preventDefault();
-        const token = localStorage.getItem('token')
+    event.preventDefault();
+    const token = localStorage.getItem('token')
     const decoded=jwt_decode(token)
+    if(window.confirm('Do you want to save changes?'))
         axios.put("http://localhost:3000/api/profile/" + decoded.id, this.state, this.state.config, {
                 headers: { 'Authorization': localStorage.getItem('token') }
              })

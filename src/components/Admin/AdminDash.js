@@ -45,21 +45,6 @@ export default class AdminDashboard extends Component{
         image:decoded.image,
         UserId: decoded.id,
       })
-        axios.get('http://localhost:3000/api/profile/' + decoded.pro_id, {
-            headers: { 'Authorization': localStorage.getItem('token') }
-    }).then ((res) => {
-            this.setState({
-                profileId: res.data.id,
-                email:res.data.email,
-                dateOfBirth:res.data.dateOfBirth,
-                gender: res.data.gender,
-                bloodGroup:res.data.bloodGroup,
-                lastDonation:res.data.lastDonation
-                
-
-            })
-           
-        }).catch(err => console.log(err.response));
     }
     
     

@@ -41,6 +41,7 @@ export default function UpdateDonation(props) {
         })
     }
     handleSubmit = (event) => {
+        if(window.confirm('Are you sure to update your donation details?'))
         event.preventDefault();
 		axios.put('http://localhost:3000/api/DonateBlood/' + this.props.id, this.state, this.state.config)
 		.then((res) => {
@@ -49,10 +50,6 @@ export default function UpdateDonation(props) {
             
     }
 
-
-	handleUpdate = () => {
-		
-	}
 	
 	componentDidMount = () => {
 		axios.get('http://localhost:3000/api/DonateBlood/' + this.state.id, this.state.config)

@@ -23,6 +23,7 @@ export default class AdminAddBloodBank extends Component{
     }
     handleSubmit = (event) => {
         event.preventDefault();
+        if(window.confirm('Are you sure to add this blood bank on the list?'))
         axios.post('http://localhost:3000/api/BloodBank', this.state,this.state.config)
             .then((res) => {
                 console.log(res)
