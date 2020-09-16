@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import { Form, FormGroup, Label, Input,} from 'reactstrap'
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
-
+import NavBar from '../NavBar'
 
 export default function ViewRequestDetails(props) {
 	let {id} = useParams();
@@ -72,7 +72,8 @@ export default function ViewRequestDetails(props) {
 
     render(){
         return(
-            
+            <div>
+                <NavBar/>
             <div id="main" class="wrapper style1">
             <section class="container">
                     <section class="4u">   
@@ -94,6 +95,7 @@ export default function ViewRequestDetails(props) {
                     </section>
                 
             </section> 
+            </div>
             </div>
        
         )

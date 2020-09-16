@@ -1,5 +1,7 @@
 import React  from 'react'
 import jwt_decode from 'jwt-decode'
+import NavBar from './NavBar'
+
 
 export default class ViewProfileDetails extends React.Component{
    
@@ -48,6 +50,9 @@ export default class ViewProfileDetails extends React.Component{
     
     render() {
         return(
+            <div>
+                <NavBar/>
+            
                 <div id="main" class="wrapper style1">
                 <section class="container">
                         <section class="4u">   
@@ -65,6 +70,7 @@ export default class ViewProfileDetails extends React.Component{
                         </section>
                     
                 </section> 
+                </div>
                 </div>
            
         )

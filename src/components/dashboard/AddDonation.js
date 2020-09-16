@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap'
 import axios from 'axios'
-
+import NavBar from '../NavBar'
 export default class AddDonation extends Component{
 
    constructor(props) {
@@ -36,8 +36,13 @@ export default class AddDonation extends Component{
             }).catch(err => console.log(err.response.data))
     }
     render(){
+        
         return(
+            <div>
+            <NavBar/>
+            
             <div className='container'>
+                
             <Form>
                 <FormGroup>
                     <Label for="weight">Weight (in kg)</Label>
@@ -105,6 +110,7 @@ export default class AddDonation extends Component{
                 <Button block color="primary" onClick={this.handleSubmit}>Submit</Button>
                 <Button block color='warning' onClick={() => this.props.history.push('/')}>Cancel</Button>
             </Form>
+        </div>
         </div>
         )
     }

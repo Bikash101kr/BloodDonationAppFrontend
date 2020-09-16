@@ -2,9 +2,9 @@ import React, {Component} from 'react'
 import { Form, FormGroup, Label, Input, Button} from 'reactstrap'
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
+import NavBar from '../NavBar'
 
-
-export default function UpdateDonation(props) {
+export default function UpdatedDonation(props) {
 	let {id} = useParams();
 	return (
 		<div>
@@ -71,6 +71,9 @@ export default function UpdateDonation(props) {
 
     render(){
         return(
+            <div>
+                <NavBar/>
+            
             
             <div className='container'>
             <Form>
@@ -140,6 +143,7 @@ export default function UpdateDonation(props) {
                 <Button block color="primary" onClick={this.handleSubmit}>Submit</Button>
                 <Button block color='warning' onClick={() => this.props.history.push('/dash/viewdonations')}>Cancel</Button>
             </Form>
+        </div>
         </div>
         )
     }

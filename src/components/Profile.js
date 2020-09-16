@@ -1,7 +1,10 @@
 import React  from 'react'
+import '../components/NavBar'
 import axios from 'axios'
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap'
 import jwt_decode from 'jwt-decode'
+import NavBar from './NavBar'
+
 export default class Profile extends React.Component{
    
     constructor(props) {
@@ -83,6 +86,9 @@ export default class Profile extends React.Component{
     
     render() {
         return(
+            <div>
+                <NavBar/>
+         
             <div className='container'>
     <Form>
     <FormGroup>
@@ -172,6 +178,7 @@ export default class Profile extends React.Component{
         
         <Button block color="primary" onClick={this.handleSubmit}>Update</Button>
     </Form>
+</div>
 </div>
 
     )

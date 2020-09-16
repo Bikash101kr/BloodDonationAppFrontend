@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from "react-router-dom";
 import Axios from 'axios'
-import NavBar from '../NavBar'
+
 export default class BloodBanks extends Component {
   constructor(props){
 
@@ -29,18 +29,13 @@ componentDidMount(){
 
 render() {
   return (
-    <div>
-      <NavBar/>
       <div className='container'>
-         
          <div className="py-4">
-        <h1>Blood Bank List</h1>
         <table class="table border shadow">
           <thead class="thead-dark">
             <tr>
             <th scope="col">#</th>
               <th scope="col">Blood Bank Name</th>
-              <th scope="col">Available Blood Group</th>
               
             </tr>
           </thead>
@@ -50,13 +45,10 @@ render() {
                 <th scope="row"></th>
             <td>{bloodbank.BloodBankName}
             </td>
-            <td>{bloodbank.availableBloodGroup}
-            </td>
               </tr>
               ))}
           </tbody>
         </table>
-      </div>
       </div>
       </div>
   )
