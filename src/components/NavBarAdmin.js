@@ -5,6 +5,12 @@ import Login from './Login';
 
 
 export default function NavBarAdmin(props) {
+    const handleLogout = () => {
+        if(window.confirm('Do you want to logout from serve humanity ?'))
+        localStorage.removeItem('token');
+        props.history.push('/');
+        
+    }
 
     return (
 
@@ -41,7 +47,7 @@ export default function NavBarAdmin(props) {
                     </ul>
                 </Nav>
                 <NavbarText>
-                    <Button onClick= {() => this.props.history.push('/')} color='warning' > Logout</Button>
+                    <Button onClick= {handleLogout} color='warning' > Logout</Button>
                 </NavbarText>
             </Navbar>
             <Switch>

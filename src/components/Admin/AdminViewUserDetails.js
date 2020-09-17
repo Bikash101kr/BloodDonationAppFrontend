@@ -8,7 +8,6 @@ export default function AdminUserDetails(props) {
 	let {id} = useParams();
 	return (
 		<div>
-			<h1>{id}</h1>
 			<UpdateForm id={id}/>
 		</div>
 	)
@@ -67,7 +66,7 @@ export default function AdminUserDetails(props) {
     render(){
         return(
             <div>
-                <NavBarAdmin/>
+                <NavBarAdmin history = {this.props.history}/>
             
             <div id="main" class="wrapper style1">
             <section class="container">

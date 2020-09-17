@@ -26,13 +26,13 @@ export default class AdminAddBloodBank extends Component{
         if(window.confirm('Are you sure to add this blood bank on the list?'))
         axios.post('http://localhost:3000/api/BloodBank', this.state,this.state.config)
             .then((res) => {
-                console.log(res)
+                this.props.history.push('/admindashboard/adminbloodbanks')
             }).catch(err => console.log(err.response.data))
     }
     render(){
         return(
             <div>
-                <NavBarAdmin/>
+                <NavBarAdmin history = {this.props.history} />
             
             <div className='container'>
             <Form>
@@ -52,7 +52,7 @@ export default class AdminAddBloodBank extends Component{
                 </FormGroup>
                 
                 <Button block color="primary" onClick={this.handleSubmit}>Submit</Button>
-                <Button block color='warning' onClick={() => this.props.history.push('/')}>Cancel</Button>
+                <Button block color='warning' onClick={() => this.props.history.push('/admindash')}>Cancel</Button>
             </Form>
         </div>
         </div>

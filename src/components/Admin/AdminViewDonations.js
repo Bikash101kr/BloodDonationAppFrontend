@@ -58,7 +58,7 @@ componentDidMount(){
 render() {
   return (
     <div>
-      <NavBarAdmin/>
+      <NavBarAdmin history = {this.props.history}/>
 
       <div className='container'>
          

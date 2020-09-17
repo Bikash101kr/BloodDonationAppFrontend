@@ -1,20 +1,23 @@
 import React, {Component} from 'react'
 import { Form, FormGroup, Label, Input, Button} from 'reactstrap'
 import axios from 'axios'
-import { useParams } from 'react-router-dom'
+import { useParams, Redirect } from 'react-router-dom'
 import NavBar from '../NavBar'
 
 export default function UpdatedDonation(props) {
 	let {id} = useParams();
 	return (
+        
 		<div>
+           
 			<UpdateForm id={id}/>
+            
 		</div>
 	)
 
 }
 
- class UpdateForm extends Component{
+ export class UpdateForm extends Component{
     constructor(props) {
         super(props)
 
@@ -29,7 +32,8 @@ export default function UpdatedDonation(props) {
             location: '',
             status: '',
             config: {
-                headers: { 'Authorization': localStorage.getItem('token') }
+                headers: { 'Authorization': localStorage.getItem('token') },
+                isUpdate: false
             }
         }
     }
@@ -44,9 +48,24 @@ export default function UpdatedDonation(props) {
         event.preventDefault();
 		axios.put('http://localhost:3000/api/DonateBlood/' + this.props.id, this.state, this.state.config)
 		.then((res) => {
-			console.log(res)
+            console.log(res)
+            
 		}).catch(err => console.log(err.response.data));
             
+    }
+    state ={
+        redirect: false
+    }
+    setRedirect = () => {
+        this.setState({
+            redirect:true
+        })
+    }
+    handleCancel = ()=> {
+        if (this.state.redirect){
+            return<Redirect to ='/userdashboard/viewdonations'/>
+       
+        }
     }
 
 	
@@ -71,8 +90,8 @@ export default function UpdatedDonation(props) {
     render(){
         return(
             <div>
+                
                 <NavBar history = {this.props.history}/>
-            
             
             <div className='container'>
             <Form>
@@ -140,7 +159,8 @@ export default function UpdatedDonation(props) {
             </FormGroup>
                 
                 <Button block color="primary" onClick={this.handleSubmit}>Submit</Button>
-                <Button block color='warning' onClick={() => this.props.history.push('/dash/viewdonations')}>Cancel</Button>
+                {this.handleCancel()}
+                <Button block color='warning' onClick={this.setRedirect}>Cancel</Button>
             </Form>
         </div>
         </div>
@@ -148,5 +168,6 @@ export default function UpdatedDonation(props) {
     }
     
 }
+
 
 

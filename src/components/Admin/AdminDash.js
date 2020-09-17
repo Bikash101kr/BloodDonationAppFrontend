@@ -49,7 +49,7 @@ export default class AdminDashboard extends Component{
     render() {
         return(
             <div>
-                <NavBarAdmin/>
+                <NavBarAdmin history = {this.props.history}/>
                 <div id="main" class="wrapper style1">
                 <section class="container">
                     <header class="major">

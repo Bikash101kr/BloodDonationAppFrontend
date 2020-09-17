@@ -82,6 +82,7 @@ export default class Profile extends React.Component{
                     bloodGroup: '',
                     lastDonation:''  
                 })
+                this.props.history.push('/userdashboard/viewprofiledetails')
             }).catch(err => console.log(err.response.data.message))
     }
 
@@ -89,16 +90,10 @@ export default class Profile extends React.Component{
     render() {
         return(
             <div>
-                <NavBar/>
+                <NavBar history = {this.props.history}/>
          
             <div className='container'>
     <Form>
-    <FormGroup>
-    <Label for="username">Username</Label>
-        <Input name='username' type='text' 
-            value={this.state.username}
-            onChange={this.handleChange} />
-    </FormGroup>
     <FormGroup>
     <Label for="firstName">First Name</Label>
         <Input name='firstName' type='text'

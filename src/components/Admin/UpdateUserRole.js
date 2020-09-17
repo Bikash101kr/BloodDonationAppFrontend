@@ -1,14 +1,13 @@
 import React, {Component} from 'react'
 import { Form, FormGroup, Label, Input, Button} from 'reactstrap'
 import axios from 'axios'
-import { useParams } from 'react-router-dom'
+import { useParams, Redirect} from 'react-router-dom'
 import NavBarAdmin from '../NavBarAdmin'
 
 export default function UpdateUserRole(props) {
 	let {id} = useParams();
 	return (
 		<div>
-			<h1>{id}</h1>
 			<UpdateForm id={id}/>
 		</div>
 	)
@@ -47,9 +46,22 @@ export default function UpdateUserRole(props) {
         event.preventDefault();
 		axios.put('http://localhost:3000/api/admin/' + this.props.id + '/role', this.state, this.state.config)
 		.then((res) => {
-			console.log(res)
 		}).catch(err => console.log(err.response.data));
             
+    }
+    state ={
+        redirect: false
+    }
+    setRedirect = () => {
+        this.setState({
+            redirect:true
+        })
+    }
+    handleCancel = ()=> {
+        if (this.state.redirect){
+            return<Redirect to ='/admindashboard/adminviewusers'/>
+       
+        }
     }
 	
 	componentDidMount = () => {
@@ -66,7 +78,7 @@ export default function UpdateUserRole(props) {
     render(){
         return(
             <div>
-                <NavBarAdmin/>
+                <NavBarAdmin history = {this.props.history}/>
             
             
             <div className='container'>
@@ -84,7 +96,8 @@ export default function UpdateUserRole(props) {
             </FormGroup>
     
                 <Button block color="primary" onClick={this.handleSubmit}>Submit</Button>
-                <Button block color='warning' onClick={() => this.props.history.push('/dash/viewdonations')}>Cancel</Button>
+                {this.handleCancel()}
+                <Button block color='warning' onClick={this.setRedirect}>Cancel</Button>
             </Form>
         </div>
         </div>

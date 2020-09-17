@@ -38,6 +38,7 @@ export default class AddRequest extends Component{
         axios.post('http://localhost:3000/api/RequestBlood', this.state, this.state.config)
             .then((res) => {
                 console.log(res)
+                this.props.history.push('/userdashboard/viewrequests')
             }).catch(err => console.log(err.response.data));
             
     }
@@ -172,7 +173,7 @@ export default class AddRequest extends Component{
                 
                 
                 <Button block color="primary" onClick={this.handleSubmit}>Submit</Button>
-                <Button block color='warning' onClick={() => this.props.history.push('/')}>Cancel</Button>
+                <Button block color='warning' onClick={() => this.props.history.push('/userdash')}>Cancel</Button>
             </Form>
         </div>
         </div>

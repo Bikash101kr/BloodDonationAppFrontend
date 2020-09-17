@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap'
 import axios from 'axios'
-import { useParams } from 'react-router-dom'
+import { useParams, Redirect} from 'react-router-dom'
 import NavBar from '../NavBar'
 
 export default function UpdatedRequest(props) {
@@ -50,7 +50,8 @@ export default function UpdatedRequest(props) {
         event.preventDefault();
 		axios.put('http://localhost:3000/api/RequestBlood/' + this.props.id, this.state, this.state.config)
 		.then((res) => {
-			console.log(res)
+            console.log(res)
+            this.props.history.push('userdashboard/viewrequests')
 		}).catch(err => console.log(err.response.data));
             
     }
@@ -58,7 +59,21 @@ export default function UpdatedRequest(props) {
 
 	handleUpdate = () => {
 		
-	}
+    }
+    state ={
+        redirect: false
+    }
+    setRedirect = () => {
+        this.setState({
+            redirect:true
+        })
+    }
+    handleCancel = ()=> {
+        if (this.state.redirect){
+            return<Redirect to ='/userdashboard/viewrequests'/>
+       
+        }
+    }
 	
 	componentDidMount = () => {
 		axios.get('http://localhost:3000/api/RequestBlood/' + this.state.id, this.state.config)
@@ -211,7 +226,8 @@ export default function UpdatedRequest(props) {
                 
                 
                 <Button block color="primary" onClick={this.handleSubmit}>Submit</Button>
-                <Button block color='warning' onClick={() => this.props.history.push('/')}>Cancel</Button>
+                {this.handleCancel()}
+                <Button block color='warning' onClick={this.setRedirect}>Cancel</Button>
             </Form>
         </div>
         </div>

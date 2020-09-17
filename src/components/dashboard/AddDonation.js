@@ -33,7 +33,9 @@ export default class AddDonation extends Component{
         axios.post('http://localhost:3000/api/DonateBlood', this.state,this.state.config)
             .then((res) => {
                 console.log(res)
+                this.props.history.push('/userdashboard/viewdonations')
             }).catch(err => console.log(err.response.data))
+            
     }
     render(){
         
@@ -108,7 +110,7 @@ export default class AddDonation extends Component{
             </FormGroup>
                 
                 <Button block color="primary" onClick={this.handleSubmit}>Submit</Button>
-                <Button block color='warning' onClick={() => this.props.history.push('/')}>Cancel</Button>
+                <Button block color='warning' onClick={() => this.props.history.push('/userdash/nav')}>Cancel</Button>
             </Form>
         </div>
         </div>

@@ -5,7 +5,7 @@ import { NavLink, Switch, Link } from 'react-router-dom';
 export default function NavBar(props) {
 
     const handleLogout = () => {
-
+        if(window.confirm('Do you want to logout from serve humanity ?'))
         localStorage.removeItem('token');
         props.history.push('/');
         

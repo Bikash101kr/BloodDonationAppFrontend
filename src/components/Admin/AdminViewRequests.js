@@ -46,10 +46,6 @@ export default class AdminViewRequests extends Component {
 	}).catch(err => console.log(err.response));
   }
 
-  handleUpdateClick = (id) => {
-	  console.log(id)
-	  this.props.history.push(`/admindashboard/adminupdaterequest/${id}`);
-  }
   handleViewClick = (id) => {
 	  console.log(id)
 	  this.props.history.push(`/admindashboard/adminviewrequestdetails/${id}`);
@@ -69,7 +65,7 @@ componentDidMount(){
 render() {
   return (
     <div>
-      <NavBarAdmin/>
+      <NavBarAdmin history = {this.props.history}/>
     
       <div className='container'>
          
@@ -100,12 +96,7 @@ render() {
                   onClick={() => this.handleViewClick(request._id)}>
                     View
                   </Link>
-                  <Link onClick={() => this.handleUpdateClick(request._id)}
-                    class="btn btn-outline-primary mr-2"
-                
-                  >
-                    Edit
-                  </Link>
+  
                   <Link class="btn btn-danger" onClick={() => this.handleDelete(request._id)}>
                     Delete
                   </Link>

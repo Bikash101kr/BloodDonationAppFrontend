@@ -1,14 +1,13 @@
 import React, {Component} from 'react'
 import { Form, FormGroup, Label, Input, Button} from 'reactstrap'
 import axios from 'axios'
-import { useParams } from 'react-router-dom'
+import { useParams, Redirect} from 'react-router-dom'
 import NavBarAdmin from '../NavBarAdmin'
 
 export default function UpdateDonationStatus(props) {
 	let {id} = useParams();
 	return (
 		<div>
-			<h1>{id}</h1>
 			<UpdateForm id={id}/>
 		</div>
 	)
@@ -54,7 +53,20 @@ export default function UpdateDonationStatus(props) {
 	handleUpdate = () => {
 		
 	}
-	
+	state ={
+        redirect: false
+    }
+    setRedirect = () => {
+        this.setState({
+            redirect:true
+        })
+    }
+    handleCancel = ()=> {
+        if (this.state.redirect){
+            return<Redirect to ='/admindashboard/adminviewdonations'/>
+       
+        }
+    }
 	componentDidMount = () => {
 		axios.get('http://localhost:3000/api/DonateBlood/' + this.state.id, this.state.config)
 		.then((res) => {
@@ -76,60 +88,10 @@ export default function UpdateDonationStatus(props) {
     render(){
         return(
             <div>
-                <NavBarAdmin/>
+                <NavBarAdmin history = {this.props.history}/>
             
             <div className='container'>
             <Form>
-                <FormGroup>
-                    <Label for="weight">Weight (in kg)</Label>
-                    <Input type='number' name='weight' id='weight'
-                    value ={this.state.weight}
-                    onChange={this.handleChange}
-                         />
-                </FormGroup>
-                <FormGroup>
-                    <Label for='country'>Country</Label>
-                    <Input type='text' name='country' id='country'
-                    value ={this.state.country}
-                    onChange={this.handleChange}
-                    />
-                </FormGroup>
-                <FormGroup>
-                    <Label for='state'>State</Label>
-                    <Input type='text' name='state' id='state'
-                    value ={this.state.state}
-                    onChange={this.handleChange}
-                    />
-                </FormGroup>
-                <FormGroup>
-                    <Label for='district'>District</Label>
-                    <Input type='text' name='district' id='district'
-                    value ={this.state.district}
-                    onChange={this.handleChange}
-                    />
-                </FormGroup>
-                <FormGroup>
-                    <Label for='city'>City</Label>
-                    <Input type='text' name='city' id='city'
-                 value ={this.state.city}
-                 onChange={this.handleChange}
-                    />
-                    </FormGroup>
-                    <FormGroup>
-                    <Label for='street'>Street</Label>
-                    <Input type='text' name='street' id='street'
-                    value ={this.state.street}
-                    onChange={this.handleChange}
-                    />
-                
-                </FormGroup>
-                <FormGroup>
-                    <Label for='location'>Location</Label>
-                    <Input type='text' name='location' id='location'
-                        value ={this.state.location}
-                        onChange={this.handleChange} 
-                        />
-                    </FormGroup>
 
                 <FormGroup>
                 <Label for='status'>Status</Label>
@@ -144,7 +106,8 @@ export default function UpdateDonationStatus(props) {
             </FormGroup>
                 
                 <Button block color="primary" onClick={this.handleSubmit}>Submit</Button>
-                <Button block color='warning' onClick={() => this.props.history.push('/dash/viewdonations')}>Cancel</Button>
+                {this.handleCancel()}
+                <Button block color='warning' onClick={this.setRedirect}>Cancel</Button>
             </Form>
         </div>
         </div>

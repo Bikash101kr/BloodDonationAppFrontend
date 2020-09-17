@@ -31,22 +31,24 @@ export default class UpdateProfile extends React.Component{
     componentDidMount= ()=> {
     const token = localStorage.getItem('token')
     const decoded=jwt_decode(token)
-      this.setState({
-                username: decoded.username,
-                firstName: decoded.firstName,
-                lastName: decoded.lastName,
-                phone: decoded.phone,
-                role: decoded.role,
-                email:decoded.email ,
-                dateOfBirth: decoded.dateOfBirth,
-                gender: decoded.gender,
-                bloodGroup: decoded.bloodGroup,
-                lastDonation:decoded.lastDonation,
-                image:decoded.image,
-                UserId: decoded.id,
-            
-            
-      })
+     axios.get('http://localhost:3000/api/profile/' + decoded.id ,  this.state.config)
+     .then((res)=> {
+         console.log(res.data)
+         this.setState({
+                        username: res.data.username,
+                        firstName: res.data.firstName,
+                        lastName: res.data.lastName,
+                        phone: res.data.phone,
+                        role: res.data.role,
+                        email:res.data.email ,
+                        dateOfBirth: res.data.dateOfBirth,
+                        gender: res.data.gender,
+                        bloodGroup: res.data.bloodGroup,
+                        lastDonation:res.data.lastDonation,
+                        image:res.data.image,
+         })
+
+     })
         
     }
     
@@ -79,6 +81,7 @@ export default class UpdateProfile extends React.Component{
                     bloodGroup: '',
                     lastDonation:''  
                 })
+                this.props.history.push('/admindashboard/viewprofile')
             }).catch(err => console.log(err.response.data.message))
     }
 
@@ -86,10 +89,16 @@ export default class UpdateProfile extends React.Component{
     render() {
         return(
             <div>
-                <NavBarAdmin/>
+                <NavBarAdmin history = {this.props.history}/>
          
             <div className='container'>
     <Form>
+    <FormGroup>
+    <Label for="username">Username</Label>
+        <Input name='username' type='text' 
+            value={this.state.username}
+            onChange={this.handleChange} />
+    </FormGroup>
     <FormGroup>
     <Label for="firstName">First Name</Label>
         <Input name='firstName' type='text'
@@ -113,7 +122,6 @@ export default class UpdateProfile extends React.Component{
         <FormGroup>
             <Label for="email">Email</Label>
             <Input type='email' name='email' id='email'
-
             value ={this.state.email}
             onChange={this.handleChange}
                 

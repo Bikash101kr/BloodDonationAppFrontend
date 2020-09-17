@@ -8,7 +8,6 @@ export default function UpdateBloodBank(props) {
 	let {id} = useParams();
 	return (
 		<div>
-			<h1>{id}</h1>
 			<UpdateForm id={id}/>
 		</div>
 	)
@@ -61,7 +60,7 @@ export default function UpdateBloodBank(props) {
     render(){
         return(
             <div>
-                <NavBarAdmin/>
+                <NavBarAdmin history = {this.props.history}/>
             
             <div className='container'>
             <Form>

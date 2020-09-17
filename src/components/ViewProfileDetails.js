@@ -54,7 +54,7 @@ export default class ViewProfileDetails extends React.Component{
     render() {
         return(
             <div>
-                <NavBar/>
+                <NavBar history = {this.props.history}/>
             
                 <div id="main" class="wrapper style1">
                 <section class="container">
