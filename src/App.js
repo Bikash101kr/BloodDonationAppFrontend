@@ -37,6 +37,8 @@ import UpdateProfile from './components/Admin/UpdateProfile';
 import ViewProfile from './components/Admin/ViewProfile';
 import AdminViewRequestDetails from './components/Admin/AdminViewRequestDetails';
 import AdminUpdateRequest from './components/Admin/AdminUpdateRequest';
+import Logout from './components/Logout';
+
 function App() {
   return (
     <div>
@@ -44,6 +46,7 @@ function App() {
         <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/login" component={Login} />
+        <PrivateRoute path="/logout" component={Logout} />
           <Route path="/register" component={Register} />
           <PrivateRoute path='/userdash/'  component={UserDashboard} />
           

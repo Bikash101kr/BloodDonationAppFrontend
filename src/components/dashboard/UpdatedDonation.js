@@ -8,7 +8,6 @@ export default function UpdatedDonation(props) {
 	let {id} = useParams();
 	return (
 		<div>
-			<h1>{id}</h1>
 			<UpdateForm id={id}/>
 		</div>
 	)
@@ -72,7 +71,7 @@ export default function UpdatedDonation(props) {
     render(){
         return(
             <div>
-                <NavBar/>
+                <NavBar history = {this.props.history}/>
             
             
             <div className='container'>

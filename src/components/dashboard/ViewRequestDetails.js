@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-import { Form, FormGroup, Label, Input,} from 'reactstrap'
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
 import NavBar from '../NavBar'
@@ -8,7 +7,6 @@ export default function ViewRequestDetails(props) {
 	let {id} = useParams();
 	return (
 		<div>
-			<h1>{id}</h1>
 			<UpdateForm id={id}/>
 		</div>
 	)
@@ -73,7 +71,7 @@ export default function ViewRequestDetails(props) {
     render(){
         return(
             <div>
-                <NavBar/>
+                <NavBar history = {this.props.history}/>
             <div id="main" class="wrapper style1">
             <section class="container">
                     <section class="4u">   

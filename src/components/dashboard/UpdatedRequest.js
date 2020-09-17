@@ -8,7 +8,6 @@ export default function UpdatedRequest(props) {
 	let {id} = useParams();
 	return (
 		<div>
-			<h1>{id}</h1>
 			<UpdateForm id={id}/>
 		</div>
 	)
@@ -88,7 +87,7 @@ export default function UpdatedRequest(props) {
     render(){
         return(
             <div>
-                <NavBar/>
+                <NavBar history = {this.props.history}/>
             <div className='container'>
             <Form>
                 <FormGroup>

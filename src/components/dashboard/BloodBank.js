@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Link } from "react-router-dom";
 import Axios from 'axios'
 import NavBar from '../NavBar'
 export default class BloodBanks extends Component {
@@ -30,7 +29,7 @@ componentDidMount(){
 render() {
   return (
     <div>
-      <NavBar/>
+      <NavBar history = {this.props.history}/>
       <div className='container'>
          
          <div className="py-4">

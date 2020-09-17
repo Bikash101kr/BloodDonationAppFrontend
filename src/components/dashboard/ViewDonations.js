@@ -57,7 +57,7 @@ componentDidMount(){
 render() {
   return (
     <div>
-      <NavBar/>
+      <NavBar history = {this.props.history}/>
       <div className='container'>
          
          <div className="py-4">

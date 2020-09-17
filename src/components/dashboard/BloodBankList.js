@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import Axios from 'axios'
-
 export default class BloodBanks extends Component {
   constructor(props){
 

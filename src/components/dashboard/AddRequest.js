@@ -42,12 +42,12 @@ export default class AddRequest extends Component{
             
     }
     handleEdit = (requestId) => {
-        this.props.history.push(`/dash/requestbloods/${requestId}`);
+        this.props.history.push(`/userdash/requestbloods/${requestId}`);
     }
     render(){
         return(
             <div>
-                <NavBar/>
+                <NavBar history = {this.props.history}/>
             
             <div className='container'>
             <Form>

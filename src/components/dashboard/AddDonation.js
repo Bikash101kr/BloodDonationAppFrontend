@@ -39,7 +39,7 @@ export default class AddDonation extends Component{
         
         return(
             <div>
-            <NavBar/>
+            <NavBar history = {this.props.history}/>
             
             <div className='container'>
                 

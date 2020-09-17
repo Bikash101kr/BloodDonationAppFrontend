@@ -4,6 +4,13 @@ import { NavLink, Switch, Link } from 'react-router-dom';
 
 export default function NavBar(props) {
 
+    const handleLogout = () => {
+
+        localStorage.removeItem('token');
+        props.history.push('/');
+        
+    }
+
     return (
 
         <div>
@@ -40,7 +47,7 @@ export default function NavBar(props) {
                     </ul>
                 </Nav>
                 <NavbarText>
-                    <Button onClick= {() => this.props.history.push('/login')} color='warning' > Logout</Button>
+                <Button onClick={handleLogout} color='warning'>Logout</Button>
                 </NavbarText>
             </Navbar>
             <Switch>

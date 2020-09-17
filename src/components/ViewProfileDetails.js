@@ -1,7 +1,7 @@
 import React  from 'react'
 import jwt_decode from 'jwt-decode'
 import NavBar from './NavBar'
-
+import axios from 'axios'
 
 export default class ViewProfileDetails extends React.Component{
    
@@ -26,26 +26,29 @@ export default class ViewProfileDetails extends React.Component{
         }
     }
     componentDidMount= ()=> {
-    const token = localStorage.getItem('token')
-    const decoded=jwt_decode(token)
-      this.setState({
-        username: decoded.username,
-        firstName: decoded.firstName,
-        lastName: decoded.lastName,
-        phone: decoded.phone,
-        role: decoded.role,
-        email:decoded.email ,
-        dateOfBirth: decoded.dateOfBirth,
-        gender: decoded.gender,
-        bloodGroup: decoded.bloodGroup,
-        lastDonation:decoded.lastDonation,
-        image:decoded.image,
-        UserId: decoded.user_id,
-            
-            
-      })
+        const token = localStorage.getItem('token')
+        const decoded=jwt_decode(token)
+         axios.get('http://localhost:3000/api/profile/' + decoded.id ,  this.state.config)
+         .then((res)=> {
+             console.log(res.data)
+             this.setState({
+                username: res.data.username,
+                            firstName: res.data.firstName,
+                            lastName: res.data.lastName,
+                            phone: res.data.phone,
+                            role: res.data.role,
+                            email:res.data.email ,
+                            dateOfBirth: res.data.dateOfBirth,
+                            gender: res.data.gender,
+                            bloodGroup: res.data.bloodGroup,
+                            lastDonation:res.data.lastDonation,
+                            image:res.data.image,
+             })
     
-    }
+         })
+            
+        }
+        
     
     
     render() {
