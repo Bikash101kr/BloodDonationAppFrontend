@@ -17,6 +17,7 @@ export default class ViewDonations extends Component {
       city: '',
       street: '',
       location: '',
+      bloodGroup:'',
       status: '',
         config: {
             headers: { 'Authorization': localStorage.getItem('token') }
@@ -68,6 +69,7 @@ render() {
             <th scope="col">#</th>
               <th scope="col">Full Address</th>
               <th scope="col"> Weight</th>
+              <th scope="col"> Blood Group</th>
               <th scope="col"> Prefer Location</th>
               <th scope="col"> Blood Status</th>
         
@@ -83,6 +85,7 @@ render() {
             {donation.city}, {donation.street}
             </td>
             <td>{donation.weight}</td>
+            <td>{donation.bloodGroup}</td>
             <td>{donation.location}</td>
                 <td>{donation.status}</td>
                 <td>

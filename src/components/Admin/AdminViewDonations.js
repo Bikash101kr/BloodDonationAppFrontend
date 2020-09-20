@@ -12,6 +12,7 @@ export default class AdminViewDonations extends Component {
       donatebloods: [],
       donationId:'',
       weight: '',
+      bloodGroup:'',
       country: '',
       state: '',
       district: '',
@@ -84,6 +85,7 @@ render() {
             {donation.state}, {donation.district},
             {donation.city}, {donation.street}
             </td>
+            <td>{donation.bloodGroup}</td>
             <td>{donation.weight}</td>
             <td>{donation.location}</td>
                 <td>{donation.status}</td>

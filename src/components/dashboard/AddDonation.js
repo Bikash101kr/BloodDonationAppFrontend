@@ -15,6 +15,7 @@ export default class AddDonation extends Component{
             city: '',
             street: '',
             location: '',
+            bloodGroup:'',
             status: '',
             config: {
                 headers: { 'Authorization': localStorage.getItem('token') }
@@ -53,6 +54,23 @@ export default class AddDonation extends Component{
                     onChange={this.handleChange}
                          />
                 </FormGroup>
+                <FormGroup>
+            <Label for='bloodGroup'>Blood Group</Label>
+            <Input type='select' name='bloodGroup' id='bloodGroup' 
+            value ={this.state.bloodGroup}
+            onChange={this.handleChange} >
+            <option value='' >Select Blood Group </option>
+            <option value='A+'>A+</option>
+            <option value='B+'>B+</option>
+            <option value='AB+'>AB+</option>
+            <option value='O+'>O+</option>
+            <option value='A-'>A-</option>
+            <option value='B-'>B-</option>
+            <option value='AB-'>AB-</option>
+            <option value='O-'>O-</option>
+        
+            </Input>
+            </FormGroup>
                 <FormGroup>
                     <Label for='country'>Country</Label>
                     <Input type='text' name='country' id='country'

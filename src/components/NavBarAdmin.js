@@ -47,7 +47,7 @@ export default function NavBarAdmin(props) {
                     </ul>
                 </Nav>
                 <NavbarText>
-                    <Button onClick= {handleLogout} color='warning' > Logout</Button>
+                    <Button id="btn-logout" className=" btn btn-primary btn-customized"  onClick= {handleLogout} color='danger'  > Logout</Button>
                 </NavbarText>
             </Navbar>
             <Switch>

@@ -47,7 +47,7 @@ export default function NavBar(props) {
                     </ul>
                 </Nav>
                 <NavbarText>
-                <Button onClick={handleLogout} color='warning'>Logout</Button>
+                <Button id="btn-logout" onClick={handleLogout} color='danger'>Logout</Button>
                 </NavbarText>
             </Navbar>
             <Switch>

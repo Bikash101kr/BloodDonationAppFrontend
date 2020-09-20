@@ -13,6 +13,7 @@
 		font-family: Arial, Helvetica, sans-serif;
 		box-sizing: border-box;
 	}
+	
 
 	body, input, select, textarea {
 		color: #555555;
@@ -758,218 +759,89 @@
 
 
 
-/* CSS for gallery */
-.gallery {
-	display:grid;
-	place-content:center;
-	background:#111;
-}
-  
-.waterfall {
-width: 80vw;
-margin: 10em 0;
-display: grid;
-grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-grid-gap: 1em;
-grid-auto-flow: row dense;
-grid-auto-rows: 10vh;
-}
-.waterfall .item:nth-of-type(3n+1) {
-grid-row: auto / span 3;
-}
-.waterfall .item:nth-of-type(3n+2) {
-grid-row: auto / span 4;
-}
-.waterfall .item:nth-of-type(3n+3) {
-grid-row: auto / span 5;
-}
-.waterfall .item {
-overflow: hidden;
--webkit-transform: rotate(-7.5deg);
-		transform: rotate(-7.5deg);
--webkit-filter: saturate(0) contrast(10) brightness(0.2);
-		filter: saturate(0) contrast(10) brightness(0.2);
--webkit-transition: border 0.1s, -webkit-transform 0.2s;
-transition: border 0.1s, -webkit-transform 0.2s;
-transition: transform 0.2s, border 0.1s;
-transition: transform 0.2s, border 0.1s, -webkit-transform 0.2s;
-box-sizing: border-box;
-border: 1em solid transparent;
-}
-.waterfall .item img {
-width: 100%;
-height: 100%;
--o-object-fit: cover;
-	object-fit: cover;
--webkit-transform: rotate(15deg);
-		transform: rotate(15deg);
--webkit-transition: all 0.3s;
-transition: all 0.3s;
-}
-.waterfall .item.inbound {
--webkit-transform: rotate(0);
-		transform: rotate(0);
--webkit-filter: none;
-		filter: none;
-border-bottom: 1px solid white;
-}
-.waterfall .item.inbound img {
--webkit-transform: rotate(0);
-		transform: rotate(0);
-}
 
-.row > .column {
-	padding: 0 8px;
-  }
-  
-  .row:after {
-	content: "";
-	display: table;
-	clear: both;
-  }
-  
-  /* Create four equal columns that floats next to eachother */
-  .column {
-	float: left;
-	width: 25%;
-  }
-  
-  /* The Modal (background) */
-  .modal {
-	display: none;
-	position: fixed;
-	z-index: 1;
-	padding-top: 100px;
-	left: 0;
-	top: 0;
+
+
+.main-content{
+	width: 50%;
+	border-radius: 20px;
+	box-shadow: 0 5px 5px rgba(0,0,0,.4);
+	margin: 5em auto;
+	display: flex;
+}
+.company_info{
+	background-color: #008080;
+	border-top-left-radius: 20px;
+	border-bottom-left-radius: 20px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	color: #fff;
+}
+.fa-android{
+	font-size:3em;
+}
+@media screen and (max-width: 640px) {
+	.main-content{width: 90%;}
+	.company__info{
+		display: none;
+	}
+	.login_form{
+		border-top-left-radius:20px;
+		border-bottom-left-radius:20px;
+	}
+}
+@media screen and (min-width: 642px) and (max-width:800px){
+	.main-content{width: 70%;}
+}
+.row > h2{
+	color:#008080;
+}
+.login_form{
+	background-color: #fff;
+	border-top-right-radius:20px;
+	border-bottom-right-radius:20px;
+	border-top:1px solid #ccc;
+	border-right:1px solid #ccc;
+}
+form{
+	padding: 0 2em;
+}
+.form_input{
 	width: 100%;
-	height: 100%;
-	overflow: auto;
-	background-color: black;
-  }
-  
-  /* Modal Content */
-  .modal-content {
-	position: relative;
-	background-color: #fefefe;
-	margin: auto;
-	padding: 0;
-	width: 90%;
-	max-width: 1200px;
-  }
-  
-  /* The Close Button */
-  .close {
-	color: white;
-	position: absolute;
-	top: 10px;
-	right: 25px;
-	font-size: 35px;
-	font-weight: bold;
-  }
-  
-  .close:hover,
-  .close:focus {
-	color: #999;
-	text-decoration: none;
-	cursor: pointer;
-  }
-  
-  /* Hide the slides by default */
-  .mySlides {
-	display: none;
-  }
-  
-  /* Next & previous buttons */
-  .prev,
-  .next {
-	cursor: pointer;
-	position: absolute;
-	top: 50%;
-	width: auto;
-	padding: 16px;
-	margin-top: -50px;
-	color: white;
-	font-weight: bold;
-	font-size: 20px;
-	transition: 0.6s ease;
-	border-radius: 0 3px 3px 0;
-	user-select: none;
-	-webkit-user-select: none;
-  }
-  
-  /* Position the "next button" to the right */
-  .next {
-	right: 0;
-	border-radius: 3px 0 0 3px;
-  }
-  
-  /* On hover, add a black background color with a little bit see-through */
-  .prev:hover,
-  .next:hover {
-	background-color: rgba(0, 0, 0, 0.8);
-  }
-  
-  /* Number text (1/3 etc) */
-  .numbertext {
-	color: #f2f2f2;
-	font-size: 12px;
-	padding: 8px 12px;
-	position: absolute;
-	top: 0;
-  }
-  
-  /* Caption text */
-  .caption-container {
-	text-align: center;
-	background-color: black;
-	padding: 2px 16px;
-	color: white;
-  }
-  
-  img.demo {
-	opacity: 0.6;
-  }
-  
-  .active,
-  .demo:hover {
-	opacity: 1;
-  }
-  
-  img.hover-shadow {
-	transition: 0.3s;
-  }
-  
-  .hover-shadow:hover {
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  }
-  
-
-  
-  /*Css for contact form*/
-  input[type=text], select, textarea {
-	width: 100%; /* Full width */
-	padding: 12px; /* Some padding */ 
-	border: 1px solid #ccc; /* Gray border */
-	border-radius: 4px; /* Rounded borders */
-	box-sizing: border-box; /* Make sure that padding and width stays in place */
-	margin-top: 6px; /* Add a top margin */
-	margin-bottom: 16px; /* Bottom margin */
-	resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
-  }
-  
-  /* Style the submit button with a specific background color etc */
-  input[type=submit] {
-	background-color: #4CAF50;
-	color: white;
-	padding: 12px 20px;
-	border: none;
+	border:0px solid transparent;
+	border-radius: 0;
+	border-bottom: 1px solid #aaa;
+	padding: 1em .5em .5em;
+	padding-left: 2em;
+	outline:none;
+	margin:1.5em auto;
+	transition: all .5s ease;
+}
+.form_input:focus{
+	border-bottom-color: #008080;
+	box-shadow: 0 0 5px rgba(0,80,80,.4); 
 	border-radius: 4px;
-	cursor: pointer;
-  }
-  
-  /* When moving the mouse over the submit button, add a darker green color */
-  input[type=submit]:hover {
-	background-color: #45a049;
-  }
-  
+}
+.btn{
+	transition: all .5s ease;
+	width: 70%;
+	border-radius: 30px;
+	color:#008080;
+	font-weight: 600;
+	background-color: #fff;
+	border: 1px solid #008080;
+	margin-top: 1.5em;
+	margin-bottom: 1em;
+}
+.btn:hover, .btn:focus{
+	background-color: #008080;
+	color:#fff;
+}
+.form-register{
+	width: 200%;
+}
+
+#btn-logout{
+	width: fit-content;
+}

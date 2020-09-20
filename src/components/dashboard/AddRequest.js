@@ -102,7 +102,7 @@ export default class AddRequest extends Component{
                     />
                 
                 </FormGroup>
-                </FormGroup>
+               
                     <FormGroup>
                     <Label for='hospitalName'>Hospital Name</Label>
                     <Input type='text' name='hospitalName' id='hospitalName'
@@ -132,8 +132,8 @@ export default class AddRequest extends Component{
             <option value='B-'>B-</option>
             <option value='AB-'>AB-</option>
             <option value='O-'>O-</option>
-            
             </Input>
+            </FormGroup>
             <FormGroup>
                     <Label for='needUnit'>Need Unit</Label>
                     <Input type='text' name='needUnit' id='needUnit'

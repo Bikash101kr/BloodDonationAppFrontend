@@ -7,6 +7,7 @@ import bloodbank from '../css/images/bloodbank.png';
 import users from '../css/images/users.png';
 import bloodgroup from '../css/images/bloodgroups.jpg';
 import BloodBankList from './BloodBankList';
+import AvailableBlood from './AvailableBlood';
 export default class UserDashboard extends Component{
     constructor(props) {
         super(props)
@@ -87,7 +88,7 @@ export default class UserDashboard extends Component{
                             <a href="/!#" class="image feature"></a>
                             <img src={bloodgroup} alt="bloodgroup" />
                             <h3>Blood Groups</h3>
-                            <p>Available blood groups will be displayed here</p>
+                            <AvailableBlood/>
                         </section>
                     </div>
                 </section> 

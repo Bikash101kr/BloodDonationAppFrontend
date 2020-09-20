@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom';
 import Axios from 'axios'
 export default class BloodBanks extends Component {
   constructor(props){
@@ -28,13 +29,13 @@ componentDidMount(){
 render() {
   return (
       <div className='container'>
-         <div className="py-4">
+         <div className="py-table-wrapper-scroll-y my-custom-scrollbar">
         <table class="table border shadow">
           <thead class="thead-dark">
             <tr>
             <th scope="col">#</th>
               <th scope="col">Blood Bank Name</th>
-              
+              <th scope="col">Action</th>
             </tr>
           </thead>
           <tbody>
@@ -43,6 +44,10 @@ render() {
                 <th scope="row"></th>
             <td>{bloodbank.BloodBankName}
             </td>
+            <td>
+              <Link class="mr-2" to='../dashboard/AddDonation'> Donate</Link>
+                  
+                </td>
               </tr>
               ))}
           </tbody>

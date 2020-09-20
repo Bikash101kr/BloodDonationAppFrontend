@@ -1,12 +1,11 @@
 import React from 'react'
 import { Button } from 'reactstrap'
-
+import { Link } from 'react-router-dom';
 
 export default function homepage(props) {
     return (
         <div>
-                    
-            {/* <!-- Header --> */}
+ {/* <!-- Header --> */}
 			<div id="header">
 				<div class="container">
 						
@@ -22,12 +21,12 @@ export default function homepage(props) {
 										<span class="byline"> Here you can save millions life by donating just single drop of your blood</span>
                                         <h1>DONATE NOW</h1>
 									</header>
-									<Button color="primary" onClick={() => props.history.push('/login')}>Login</Button>
+									<Link class="button alt" onClick={() => props.history.push('/login')}>Login</Link>
 									<hr />
 									
                 
                     <p className="lead"> New user?      
-                    <Button color="transparent" onClick={() => props.history.push('/register')}>   Register here!  </Button>
+                    <a color="Blue" class="alt" onClick={() => props.history.push('/register')}>   Register here!  </a>
                     </p>
                
 								</section>	

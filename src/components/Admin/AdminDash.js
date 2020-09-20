@@ -6,6 +6,7 @@ import users from '../css/images/users.png'
 import bloodgroup from '../css/images/bloodgroups.jpg'
 import BloodBankList from './BloodBankList';
 import AdminUserList from './AdminUserList';
+import AvailableBlood from './AvailableBlood'
 export default class AdminDashboard extends Component{
     constructor(props) {
         super(props)
@@ -75,7 +76,7 @@ export default class AdminDashboard extends Component{
                             <a href="/!#" class="image feature"></a>
                             <img src={bloodgroup} alt="bloodgroup" />
                             <h3>Blood Groups</h3>
-                            <p>Available blood groups will be displayed here</p>
+                           <AvailableBlood/>
                         </section>
 
                     </div>
