@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-import { Form, FormGroup, Label, Input,} from 'reactstrap'
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
 import NavBarAdmin from '../NavBarAdmin'

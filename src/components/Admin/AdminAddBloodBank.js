@@ -52,7 +52,7 @@ export default class AdminAddBloodBank extends Component{
                 </FormGroup>
                 
                 <Button block color="primary" onClick={this.handleSubmit}>Submit</Button>
-                <Button block color='warning' onClick={() => this.props.history.push('/admindash')}>Cancel</Button>
+                <Button block color='danger' onClick={() => this.props.history.push('/admindash')}>Cancel</Button>
             </Form>
         </div>
         </div>

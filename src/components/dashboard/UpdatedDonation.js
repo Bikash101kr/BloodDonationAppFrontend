@@ -178,7 +178,7 @@ export default function UpdatedDonation(props) {
                 
                 <Button block color="primary" onClick={this.handleSubmit}>Submit</Button>
                 {this.handleCancel()}
-                <Button block color='warning' onClick={this.setRedirect}>Cancel</Button>
+                <Button block color='danger' onClick={this.setRedirect}>Cancel</Button>
             </Form>
         </div>
         </div>

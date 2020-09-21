@@ -173,7 +173,7 @@ export default class AddRequest extends Component{
                 
                 
                 <Button block color="primary" onClick={this.handleSubmit}>Submit</Button>
-                <Button block color='warning' onClick={() => this.props.history.push('/userdash')}>Cancel</Button>
+                <Button block color='danger' onClick={() => this.props.history.push('/userdash')}>Cancel</Button>
             </Form>
         </div>
         </div>

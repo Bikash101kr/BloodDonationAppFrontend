@@ -80,7 +80,7 @@ export default function UpdateBloodBank(props) {
                 </FormGroup>
                
                 <Button block color="primary" onClick={this.handleSubmit}>Submit</Button>
-                <Button block color='warning' onClick={() => this.props.history.push('/admindash/adminviewdonations')}>Cancel</Button>
+                <Button block color='danger' onClick={() => this.props.history.push('/admindash/adminviewdonations')}>Cancel</Button>
             </Form>
         </div>
         </div>

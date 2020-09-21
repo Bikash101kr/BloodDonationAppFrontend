@@ -1,5 +1,4 @@
 import React from 'react'
-import { Button } from 'reactstrap'
 import { Link } from 'react-router-dom';
 
 export default function homepage(props) {
@@ -24,9 +23,8 @@ export default function homepage(props) {
 									<Link class="button alt" onClick={() => props.history.push('/login')}>Login</Link>
 									<hr />
 									
-                
                     <p className="lead"> New user?      
-                    <a color="Blue" class="alt" onClick={() => props.history.push('/register')}>   Register here!  </a>
+                    <a href= '/register' color="blue" >   Register Here!  </a>
                     </p>
                
 								</section>	

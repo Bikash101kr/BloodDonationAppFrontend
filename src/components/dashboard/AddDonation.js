@@ -130,7 +130,7 @@ export default class AddDonation extends Component{
                     </FormGroup>
  
                 <Button block color="primary" onClick={this.handleSubmit}>Submit</Button>
-                <Button block color='warning' onClick={() => this.props.history.push('/userdash/nav')}>Cancel</Button>
+                <Button block color='danger' onClick={() => this.props.history.push('/userdash/nav')}>Cancel</Button>
             </Form>
         </div>
         </div>

@@ -212,7 +212,7 @@ export default function UpdatedRequest(props) {
                 
                 
                 <Button block color="primary" onClick={this.handleSubmit}>Submit</Button>
-                <Button block color='warning' onClick={() => this.props.history.push('/')}>Cancel</Button>
+                <Button block color='danger' onClick={() => this.props.history.push('/')}>Cancel</Button>
             </Form>
         </div>
         </div>
