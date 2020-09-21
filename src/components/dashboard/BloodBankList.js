@@ -26,6 +26,7 @@ componentDidMount(){
   }).catch(err => console.log(err.response));
 }
 
+
 render() {
   return (
       <div className='container'>
@@ -45,7 +46,7 @@ render() {
             <td>{bloodbank.BloodBankName}
             </td>
             <td>
-              <Link class="mr-2" to='../dashboard/AddDonation'> Donate</Link>
+              <Link class="mr-2" to='/userdashboard/AddDonation'> Donate</Link>
                   
                 </td>
               </tr>

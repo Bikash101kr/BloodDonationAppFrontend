@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Axios from 'axios'
-
+import { Link } from 'react-router-dom';
 export default class AdminUserList extends Component {
   constructor(props){
 
@@ -37,13 +37,14 @@ render() {
     
       <div className='container'>
          
-         <div className="py-4">
+         <div className="py-table-wrapper-scroll-y my-custom-scrollbar">
         <table class="table border shadow">
           <thead class="thead-dark">
             <tr>
             <th scope="col">#</th>
             <th scope="col">Username</th>
               <th scope="col"> Role</th>
+              <th scope="col">Action</th>
             </tr>
           </thead>
           <tbody>
@@ -52,6 +53,10 @@ render() {
                 <th scope="row"></th>
             <td>{user.username}</td>
                 <td>{user.role}</td>
+                <td>
+              <Link class="mr-2" to = '/admindashboard/adminviewusers' > Edit</Link>
+                  
+                </td>
               </tr>
               ))}
           </tbody>

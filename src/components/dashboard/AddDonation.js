@@ -2,6 +2,8 @@ import React, {Component} from 'react'
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap'
 import axios from 'axios'
 import NavBar from '../NavBar'
+import jwt_decode from 'jwt-decode'
+
 export default class AddDonation extends Component{
 
    constructor(props) {
@@ -16,7 +18,6 @@ export default class AddDonation extends Component{
             street: '',
             location: '',
             bloodGroup:'',
-            status: '',
             config: {
                 headers: { 'Authorization': localStorage.getItem('token') }
             }
@@ -28,6 +29,18 @@ export default class AddDonation extends Component{
             
         }, ( ) => console.log(this.state))
     }
+    componentDidMount= ()=> {
+        const token = localStorage.getItem('token')
+        const decoded=jwt_decode(token)
+         axios.get('http://localhost:3000/api/profile/' + decoded.id ,  this.state.config)
+         .then((res)=> {
+             console.log(res.data)
+             this.setState({
+                 bloodGroup: res.data.bloodGroup,        
+             })
+    
+         })
+    }    
     handleSubmit = (event) => {
         if(window.confirm('Are you ready to donate blood?'))
         event.preventDefault();
@@ -45,16 +58,7 @@ export default class AddDonation extends Component{
             <NavBar history = {this.props.history}/>
             
             <div className='container'>
-                
-            <Form>
-                <FormGroup>
-                    <Label for="weight">Weight (in kg)</Label>
-                    <Input type='number' name='weight' id='weight'
-                    value ={this.state.weight}
-                    onChange={this.handleChange}
-                         />
-                </FormGroup>
-                <FormGroup>
+            <FormGroup>
             <Label for='bloodGroup'>Blood Group</Label>
             <Input type='select' name='bloodGroup' id='bloodGroup' 
             value ={this.state.bloodGroup}
@@ -71,6 +75,16 @@ export default class AddDonation extends Component{
         
             </Input>
             </FormGroup>
+                
+            <Form>
+                <FormGroup>
+                    <Label for="weight">Weight (in kg)</Label>
+                    <Input type='number' name='weight' id='weight'
+                    value ={this.state.weight}
+                    onChange={this.handleChange}
+                         />
+                </FormGroup>
+              
                 <FormGroup>
                     <Label for='country'>Country</Label>
                     <Input type='text' name='country' id='country'
@@ -114,19 +128,7 @@ export default class AddDonation extends Component{
                         onChange={this.handleChange} 
                         />
                     </FormGroup>
-
-                <FormGroup>
-                <Label for='status'>Status</Label>
-                <Input type='select' name='status' id='status'
-                value ={this.state.status}
-                onChange={this.handleChange} >
-                    <option value=''>Blood Status</option>
-                    <option value='used'>used</option>
-                    <option value='on the way'>on the way</option>
-                    <option value='stocked on blood bank'>stocked on blood bank</option>
-                </Input>
-            </FormGroup>
-                
+ 
                 <Button block color="primary" onClick={this.handleSubmit}>Submit</Button>
                 <Button block color='warning' onClick={() => this.props.history.push('/userdash/nav')}>Cancel</Button>
             </Form>

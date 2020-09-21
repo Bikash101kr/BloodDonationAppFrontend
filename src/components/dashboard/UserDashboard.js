@@ -62,7 +62,7 @@ export default class UserDashboard extends Component{
                 <div id="main" class="wrapper style1">
                 <section class="container">
                     <header class="major">
-                        <h2>Hello : {this.state.firstName} {this.state.lastName}</h2>
+                        <h2>Hello, {this.state.firstName} {this.state.lastName}</h2>
                         <span class="byline">This is Serve Humanity User Dashboard</span>
                     </header>
                     <div class="row no-collapse-1">
@@ -88,7 +88,7 @@ export default class UserDashboard extends Component{
                             <a href="/!#" class="image feature"></a>
                             <img src={bloodgroup} alt="bloodgroup" />
                             <h3>Blood Groups</h3>
-                            <AvailableBlood/>
+                           <AvailableBlood/>
                         </section>
                     </div>
                 </section> 

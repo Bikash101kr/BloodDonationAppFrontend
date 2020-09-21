@@ -17,7 +17,7 @@ export default class AvailableBlood extends Component {
         }
       }
     componentDidMount(){
-      Axios.get('http://localhost:3000/api/DonateBlood', this.state.config)
+      Axios.get('http://localhost:3000/api/admin/donations', this.state.config)
       .then((res)=> {
         console.log(res.data)
         this.setState({
@@ -29,13 +29,13 @@ export default class AvailableBlood extends Component {
     render() {
       return (
         <div className='container'>
-        <div className="py-4">
+        <div className="py-table-wrapper-scroll-y my-custom-scrollbar">
        <table class="table border shadow">
        <thead class="thead-dark">
             <tr>
             <th scope="col">#</th>
               <th scope="col">Bloodgroup</th>
-              <th scope="col"> Blood Status</th>
+             
         
               <th>Action</th>
             </tr>
@@ -45,11 +45,9 @@ export default class AvailableBlood extends Component {
               <tr key= {donation._id}>
                 <th scope="row"></th>
             <td>{donation.bloodGroup}</td>
-                <td>{donation.status}</td>
                 <td>
                 
-                  <Link class=" mr-2"
-                  onClick={() => this.handleUpdateClick(donation._id)}>
+                  <Link class=" mr-2" to = '/admindashboard/adminviewdonations'>
                     Manage
                   </Link>
                   
